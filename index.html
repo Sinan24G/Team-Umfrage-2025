@@ -7,10 +7,9 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
             background-color: #f4f4f9;
             color: #333;
+            padding: 20px;
         }
         h1 {
             text-align: center;
@@ -19,90 +18,110 @@
         form {
             max-width: 800px;
             margin: 0 auto;
-            background: white;
+            background: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         label {
             display: block;
-            margin-top: 15px;
+            margin: 10px 0 5px;
             font-weight: bold;
         }
         input[type="text"],
         textarea {
             width: 100%;
             padding: 10px;
-            margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            margin-bottom: 15px;
         }
         textarea {
             resize: vertical;
         }
-        .btn-submit {
-            display: block;
+        button {
             width: 100%;
-            background: #3498db;
+            padding: 10px;
+            background-color: #3498db;
             color: white;
             border: none;
-            padding: 15px;
-            font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 20px;
+            font-size: 16px;
         }
-        .btn-submit:hover {
-            background: #2980b9;
+        button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
     <h1>Team-Umfrage 2025</h1>
     <form id="teamSurvey">
-        <label for="personalGoals">1. Was möchtest du bis Ende 2025 persönlich erreichen?</label>
+        <h2>Persönliche Ziele</h2>
+        <label for="personalGoals">1. Welche beruflichen Ziele möchtest du bis Ende 2025 erreichen?</label>
         <textarea id="personalGoals" name="personalGoals" placeholder="Ziele eintragen..." required></textarea>
 
-        <label for="teamGoals">2. Welche gemeinsamen Ziele sollten wir verfolgen?</label>
+        <label for="skills">2. Welche persönlichen Fähigkeiten möchtest du entwickeln?</label>
+        <textarea id="skills" name="skills" placeholder="Fähigkeiten eintragen..." required></textarea>
+
+        <label for="financialGoals">3. Welche finanziellen Ziele möchtest du erreichen?</label>
+        <textarea id="financialGoals" name="financialGoals" placeholder="Ziele eintragen..." required></textarea>
+
+        <label for="habits">4. Welche persönlichen Gewohnheiten möchtest du etablieren?</label>
+        <textarea id="habits" name="habits" placeholder="Gewohnheiten eintragen..." required></textarea>
+
+        <h2>Teamziele</h2>
+        <label for="teamGoals">5. Welche gemeinsamen Ziele sollten wir verfolgen?</label>
         <textarea id="teamGoals" name="teamGoals" placeholder="Gemeinsame Ziele eintragen..." required></textarea>
 
-        <label>3. Welche Regeln und Verbote sollen wir einhalten?</label>
-        <textarea id="rules" name="rules" placeholder="Regeln und Verbote eintragen..." required></textarea>
+        <label for="teamImprovement">6. Wie können wir als Team effizienter arbeiten?</label>
+        <textarea id="teamImprovement" name="teamImprovement" placeholder="Verbesserungsvorschläge..." required></textarea>
 
-        <label for="interests">4. Welche Themen interessieren dich?</label>
-        <textarea id="interests" name="interests" placeholder="Interessensgebiete eintragen..." required></textarea>
+        <label for="teamEvents">7. Welche Events sollten wir zusammen planen?</label>
+        <textarea id="teamEvents" name="teamEvents" placeholder="Event-Ideen..." required></textarea>
 
-        <label for="learningTopics">5. Welche Themen möchtest du lernen oder vertiefen?</label>
-        <textarea id="learningTopics" name="learningTopics" placeholder="Themen eintragen..." required></textarea>
+        <h2>Verbesserungen und Routinen</h2>
+        <label for="personalRoutines">8. Welche Routinen möchtest du ändern oder verbessern?</label>
+        <textarea id="personalRoutines" name="personalRoutines" placeholder="Routinen eintragen..." required></textarea>
 
-        <label for="dailyRoutine">6. Welche täglichen Routinen möchtest du einführen?</label>
-        <textarea id="dailyRoutine" name="dailyRoutine" placeholder="Tägliche Routinen eintragen..." required></textarea>
+        <label for="teamRoutines">9. Welche Routinen schlägst du für das Team vor?</label>
+        <textarea id="teamRoutines" name="teamRoutines" placeholder="Team-Routinen eintragen..." required></textarea>
 
-        <label for="milestones">7. Welche Meilensteine und Belohnungen motivieren dich?</label>
-        <textarea id="milestones" name="milestones" placeholder="Meilensteine und Belohnungen eintragen..." required></textarea>
+        <h2>Regeln und Vorsätze</h2>
+        <label for="rules">10. Welche Regeln oder Vorsätze möchtest du für 2025 einhalten?</label>
+        <textarea id="rules" name="rules" placeholder="Regeln eintragen..." required></textarea>
 
-        <label for="eventIdeas">8. Welche Art von Events möchtest du organisieren?</label>
-        <textarea id="eventIdeas" name="eventIdeas" placeholder="Event-Ideen eintragen..." required></textarea>
+        <label for="teamExpectations">11. Was erwartest du von anderen Teammitgliedern?</label>
+        <textarea id="teamExpectations" name="teamExpectations" placeholder="Erwartungen eintragen..." required></textarea>
 
-        <label for="feedback">9. Weitere Ideen oder Anmerkungen:</label>
+        <h2>Meilensteine und Belohnungen</h2>
+        <label for="milestones">12. Welche Meilensteine möchtest du 2025 erreichen?</label>
+        <textarea id="milestones" name="milestones" placeholder="Meilensteine eintragen..." required></textarea>
+
+        <label for="rewards">13. Welche Belohnungen motivieren dich?</label>
+        <textarea id="rewards" name="rewards" placeholder="Belohnungen eintragen..." required></textarea>
+
+        <h2>Finanzielle Strategien</h2>
+        <label for="investments">14. Welche Investmentmöglichkeiten interessieren dich?</label>
+        <textarea id="investments" name="investments" placeholder="Investments eintragen..." required></textarea>
+
+        <h2>Feedback und Vorschläge</h2>
+        <label for="feedback">15. Welche Ideen oder Anmerkungen hast du?</label>
         <textarea id="feedback" name="feedback" placeholder="Dein Feedback hier..." required></textarea>
 
-        <button type="submit" class="btn-submit">Umfrage abschicken</button>
+        <button type="submit">Umfrage abschicken</button>
     </form>
 
     <script>
         document.getElementById("teamSurvey").addEventListener("submit", async function(event) {
             event.preventDefault();
 
-            // Daten aus dem Formular sammeln
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData.entries());
 
-            // Deine Google Apps Script URL
             const url = "https://script.google.com/macros/s/AKfycbywDp86XddR_IfMh1AVZqGxlMQsCEkoQOJndHuhiTGjTx89aVACCbKvHVu4i0fpnms_/exec";
 
             try {
-                // Daten an Google Apps Script senden
                 const response = await fetch(url, {
                     method: "POST",
                     headers: {
@@ -111,12 +130,11 @@
                     body: JSON.stringify(data),
                 });
 
-                // Erfolgsmeldung anzeigen
                 if (response.ok) {
-                    alert("Vielen Dank für deine Antworten! Die Daten wurden erfolgreich gespeichert.");
-                    event.target.reset(); // Formular zurücksetzen
+                    alert("Vielen Dank! Deine Antworten wurden erfolgreich gespeichert.");
+                    event.target.reset();
                 } else {
-                    alert("Es gab ein Problem beim Speichern der Daten. Bitte versuche es später erneut.");
+                    alert("Es gab ein Problem beim Speichern der Antworten. Bitte versuche es erneut.");
                 }
             } catch (error) {
                 console.error("Fehler:", error);
