@@ -7,113 +7,128 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f9;
             color: #333;
         }
-        h1 {
+        header {
+            background-color: #3b5998;
+            color: white;
             text-align: center;
-            color: #3b5998;
+            padding: 1rem 0;
+        }
+        header h1 {
+            margin: 0;
         }
         form {
             max-width: 600px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        label {
+        form label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             font-weight: bold;
         }
-        input, textarea {
+        form input, form textarea, form select, form button {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 5px;
+            font-size: 1rem;
         }
-        textarea {
-            resize: vertical;
-        }
-        button {
-            background: #3b5998;
+        form button {
+            background-color: #3b5998;
             color: white;
-            padding: 10px 20px;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1.2rem;
         }
-        button:hover {
-            background: #2e4373;
+        form button:hover {
+            background-color: #2e4373;
+        }
+        .success-message {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+        }
+        .error-message {
+            text-align: center;
+            color: red;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>Team Umfrage 2025</h1>
-    <form id="teamSurvey">
-        <label for="personalGoals">Berufliche Ziele</label>
-        <textarea id="personalGoals" name="personalGoals" placeholder="Beispiel: Ich möchte meine Position als Teamleiter erreichen und meine Kommunikationsfähigkeiten verbessern." required></textarea>
+    <header>
+        <h1>Team Umfrage 2025</h1>
+    </header>
+    <main>
+        <form id="teamSurveyForm">
+            <label for="personalGoals">Persönliche Ziele:</label>
+            <input type="text" id="personalGoals" name="personalGoals" placeholder="Was möchtest du 2025 erreichen?" required>
 
-        <label for="skills">Persönliche Fähigkeiten</label>
-        <textarea id="skills" name="skills" placeholder="Beispiel: Programmieren lernen, besseres Zeitmanagement entwickeln." required></textarea>
+            <label for="skills">Fähigkeiten:</label>
+            <input type="text" id="skills" name="skills" placeholder="Welche neuen Fähigkeiten möchtest du lernen?">
 
-        <label for="financialGoals">Finanzielle Ziele</label>
-        <textarea id="financialGoals" name="financialGoals" placeholder="Beispiel: 10.000 € sparen, in Aktien und Krypto investieren." required></textarea>
+            <label for="financialGoals">Finanzielle Ziele:</label>
+            <input type="text" id="financialGoals" name="financialGoals" placeholder="Welche finanziellen Ziele möchtest du erreichen?">
 
-        <label for="habits">Persönliche Gewohnheiten</label>
-        <textarea id="habits" name="habits" placeholder="Beispiel: Jeden Morgen joggen, 8 Stunden Schlaf." required></textarea>
+            <label for="habits">Gewohnheiten:</label>
+            <textarea id="habits" name="habits" placeholder="Welche Gewohnheiten möchtest du entwickeln?" rows="3"></textarea>
 
-        <label for="teamGoals">Teamziele</label>
-        <textarea id="teamGoals" name="teamGoals" placeholder="Beispiel: Gemeinsames Eventmanagement, mehr Kundenkontakte aufbauen." required></textarea>
+            <label for="teamGoals">Teamziele:</label>
+            <textarea id="teamGoals" name="teamGoals" placeholder="Was soll das Team gemeinsam erreichen?" rows="3"></textarea>
 
-        <label for="teamImprovement">Verbesserungen fürs Team</label>
-        <textarea id="teamImprovement" name="teamImprovement" placeholder="Beispiel: Bessere Kommunikation, klarere Ziele setzen." required></textarea>
+            <label for="teamImprovement">Teamverbesserungen:</label>
+            <textarea id="teamImprovement" name="teamImprovement" placeholder="Wie kann das Team verbessert werden?" rows="3"></textarea>
 
-        <label for="teamEvents">Geplante Events</label>
-        <textarea id="teamEvents" name="teamEvents" placeholder="Beispiel: Ein Teamausflug, ein jährliches Planungstreffen." required></textarea>
+            <label for="teamEvents">Team-Events:</label>
+            <textarea id="teamEvents" name="teamEvents" placeholder="Welche Team-Events möchtest du planen?" rows="3"></textarea>
 
-        <label for="personalRoutines">Persönliche Routinen</label>
-        <textarea id="personalRoutines" name="personalRoutines" placeholder="Beispiel: Tägliche To-Do-Liste erstellen, 30 Minuten Weiterbildung." required></textarea>
+            <label for="rules">Regeln:</label>
+            <textarea id="rules" name="rules" placeholder="Welche Regeln sollten wir einführen?" rows="3"></textarea>
 
-        <label for="teamRoutines">Team-Routinen</label>
-        <textarea id="teamRoutines" name="teamRoutines" placeholder="Beispiel: Wöchentliche Meetings, gemeinsames Feedback geben." required></textarea>
+            <label for="teamExpectations">Erwartungen an das Team:</label>
+            <textarea id="teamExpectations" name="teamExpectations" placeholder="Was erwartest du vom Team?" rows="3"></textarea>
 
-        <label for="rules">Regeln und Vorsätze</label>
-        <textarea id="rules" name="rules" placeholder="Beispiel: Keine Alkohol, gesunde Ernährung." required></textarea>
+            <label for="milestones">Meilensteine:</label>
+            <textarea id="milestones" name="milestones" placeholder="Welche Meilensteine möchtest du festlegen?" rows="3"></textarea>
 
-        <label for="teamExpectations">Erwartungen an das Team</label>
-        <textarea id="teamExpectations" name="teamExpectations" placeholder="Beispiel: Pünktlichkeit, Engagement bei gemeinsamen Projekten." required></textarea>
+            <label for="rewards">Belohnungen:</label>
+            <textarea id="rewards" name="rewards" placeholder="Welche Belohnungen sollten wir einführen?" rows="3"></textarea>
 
-        <label for="milestones">Meilensteine</label>
-        <textarea id="milestones" name="milestones" placeholder="Beispiel: 50 % Zielerreichung bis Juni, Jahresabschluss-Event organisieren." required></textarea>
+            <label for="investments">Investitionen:</label>
+            <textarea id="investments" name="investments" placeholder="Welche Investitionen möchtest du tätigen?" rows="3"></textarea>
 
-        <label for="rewards">Belohnungen</label>
-        <textarea id="rewards" name="rewards" placeholder="Beispiel: Team-Dinner, gemeinsame Reisen." required></textarea>
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" placeholder="Zusätzliches Feedback oder Anmerkungen" rows="3"></textarea>
 
-        <label for="investments">Investmentideen</label>
-        <textarea id="investments" name="investments" placeholder="Beispiel: Immobilien, Start-up-Beteiligungen." required></textarea>
-
-        <label for="feedback">Feedback und Vorschläge</label>
-        <textarea id="feedback" name="feedback" placeholder="Beispiel: Verbesserungen für unsere Prozesse oder allgemeines Feedback." required></textarea>
-
-        <button type="submit">Abschicken</button>
-    </form>
-
+            <button type="submit">Absenden</button>
+            <p class="success-message" id="successMessage" style="display: none;">Daten erfolgreich gesendet!</p>
+            <p class="error-message" id="errorMessage" style="display: none;">Fehler beim Senden der Daten.</p>
+        </form>
+    </main>
     <script>
-        document.getElementById("teamSurvey").addEventListener("submit", async function(event) {
+        document.getElementById("teamSurveyForm").addEventListener("submit", async function(event) {
             event.preventDefault();
 
             const form = event.target;
             const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
+
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
 
             try {
                 const response = await fetch(
-                    "https://script.google.com/macros/s/AKfycbxrOJe2dL-X3xWyGj_WA3eWtZjVFZ301yez8gpsQACiViiesGctHU2zazgH6ernA8oW0A/exec",
+                    "https://script.google.com/macros/s/AKfycbzYgu58YtWqNKS1yR7jkN-GnSTLG0jlKCWTDv02IEq-SiMljFyBwl_FpJDS10_i6CDf_A/exec",
                     {
                         method: "POST",
                         body: JSON.stringify(data),
@@ -123,13 +138,16 @@
 
                 const result = await response.json();
                 if (result.status === "success") {
-                    alert("Vielen Dank für deine Teilnahme!");
+                    document.getElementById("successMessage").style.display = "block";
+                    document.getElementById("errorMessage").style.display = "none";
                     form.reset();
                 } else {
-                    throw new Error(result.message || "Ein Fehler ist aufgetreten.");
+                    throw new Error(result.message);
                 }
             } catch (error) {
-                alert("Fehler beim Absenden: " + error.message);
+                document.getElementById("errorMessage").style.display = "block";
+                document.getElementById("successMessage").style.display = "none";
+                console.error("Fehler beim Senden der Daten:", error.message);
             }
         });
     </script>
