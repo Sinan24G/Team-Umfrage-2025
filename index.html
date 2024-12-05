@@ -137,17 +137,17 @@
             };
 
             try {
-                const token = atob("Z2hwX2xFRVRTalJXbjBuT0xTcGZXQ1d2a0dNajF0cDh4UDE5YlFiVw=="); // Verschleierter Token
                 const response = await fetch("https://api.github.com/repos/Sinan24G/Team-Umfrage-2025/contents/data.json", {
                     method: "PUT",
                     headers: {
-                        "Authorization": `Bearer ${token}`,
+                        "Authorization": `Bearer ${atob("Z2hwX2xFRVRTalJXbjBuT0xTcGZXQ1d2a0dNajF0cDh4UDE5YlFiVw==")}`,
                         "Content-Type": "application/json",
                         "Accept": "application/vnd.github.v3+json"
                     },
                     body: JSON.stringify({
                         message: "Update data.json",
-                        content: btoa(JSON.stringify([data], null, 2))
+                        content: btoa(JSON.stringify([data], null, 2)),
+                        sha: null // Lege den `sha`-Wert fest, falls der Fehler weiterhin besteht.
                     })
                 });
 
@@ -156,7 +156,7 @@
                     message.style.color = "green";
                     form.reset();
                 } else {
-                    throw new Error("Fehler beim Speichern der Daten.");
+                    throw new Error(`Fehler beim Speichern: ${response.status}`);
                 }
             } catch (error) {
                 console.error("Fehler:", error);
