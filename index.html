@@ -6,17 +6,21 @@
     <title>Team-Umfrage 2025</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #4facfe, #00f2fe);
+            background: #f4f4f9;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         header {
-            background: #003c8f;
-            color: white;
-            padding: 20px;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
         }
 
@@ -25,26 +29,25 @@
             font-size: 2rem;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        .form-container {
+            max-width: 600px;
+            margin: 20px;
             padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
         }
 
-        .container h2 {
-            color: #003c8f;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
+        .form-container h2 {
+            margin-top: 0;
+            color: #333;
         }
 
         label {
             display: block;
-            font-weight: bold;
             margin-top: 15px;
-            color: #003c8f;
+            font-weight: bold;
         }
 
         input, textarea {
@@ -52,36 +55,30 @@
             padding: 10px;
             margin-top: 5px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 4px;
             font-size: 1rem;
-        }
-
-        textarea {
-            resize: vertical;
-            height: 100px;
         }
 
         button {
-            background: #003c8f;
-            color: white;
-            border: none;
+            margin-top: 20px;
+            width: 100%;
             padding: 15px;
-            border-radius: 5px;
+            background: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
             font-size: 1rem;
             cursor: pointer;
-            margin-top: 20px;
         }
 
         button:hover {
-            background: #0056b3;
+            background: #218838;
         }
 
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #003c8f;
-            color: white;
+        .message {
             margin-top: 20px;
+            font-size: 1rem;
+            text-align: center;
         }
     </style>
 </head>
@@ -90,68 +87,111 @@
         <h1>Team-Umfrage 2025</h1>
     </header>
 
-    <div class="container">
-        <h2>Teile deine Ziele und Ideen mit uns</h2>
+    <div class="form-container">
+        <h2>Teile deine Ideen und Ziele</h2>
         <form id="survey-form">
-            <label for="personalGoals">Persönliche Ziele für 2025:</label>
-            <input type="text" id="personalGoals" name="personalGoals" placeholder="Z. B.: Teamleiter werden, tägliches Joggen" required>
+            <label for="personalGoals">Persönliche Ziele:</label>
+            <input type="text" id="personalGoals" placeholder="Z. B.: Mehr sparen, gesund leben">
 
             <label for="skills">Fähigkeiten, die du entwickeln möchtest:</label>
-            <input type="text" id="skills" name="skills" placeholder="Z. B.: Programmieren, Fremdsprachen lernen" required>
+            <input type="text" id="skills" placeholder="Z. B.: Programmieren, Sprachen">
 
             <label for="financialGoals">Finanzielle Ziele:</label>
-            <input type="text" id="financialGoals" name="financialGoals" placeholder="Z. B.: 10.000 Euro sparen" required>
+            <input type="text" id="financialGoals" placeholder="Z. B.: 10.000 Euro sparen">
 
             <label for="teamGoals">Teamziele:</label>
-            <textarea id="teamGoals" name="teamGoals" placeholder="Welche Ziele möchtest du mit deinem Team erreichen?"></textarea>
+            <textarea id="teamGoals" placeholder="Gemeinsame Ziele für das Team"></textarea>
 
-            <label for="rules">Regeln/Vorsätze für das Jahr 2025:</label>
-            <textarea id="rules" name="rules" placeholder="Z. B.: Kein Alkohol, Pünktlichkeit"></textarea>
+            <label for="rules">Regeln/Vorsätze:</label>
+            <textarea id="rules" placeholder="Z. B.: Kein Alkohol, Pünktlichkeit"></textarea>
 
-            <label for="feedback">Feedback oder Vorschläge:</label>
-            <textarea id="feedback" name="feedback" placeholder="Teile uns deine Ideen oder Verbesserungsvorschläge mit"></textarea>
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" placeholder="Dein Feedback oder Ideen"></textarea>
 
             <button type="submit">Absenden</button>
         </form>
+        <div class="message" id="message"></div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Team-Umfrage. Alle Rechte vorbehalten.</p>
-    </footer>
-
     <script>
-        document.getElementById("survey-form").addEventListener("submit", async function(e) {
-            e.preventDefault();
+        const form = document.getElementById('survey-form');
+        const message = document.getElementById('message');
 
-            const url = "https://script.google.com/macros/s/AKfycbxR-u6Na8U3XhEBI2YNpvlW6tAqkbQhbk8cYqBnQ2hqROF-j7vZkbm85RV3SPTIOTAZxg/exec";
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
 
-            const formData = {
-                personalGoals: document.getElementById("personalGoals").value,
-                skills: document.getElementById("skills").value,
-                financialGoals: document.getElementById("financialGoals").value,
-                teamGoals: document.getElementById("teamGoals").value,
-                rules: document.getElementById("rules").value,
-                feedback: document.getElementById("feedback").value
+            const personalGoals = document.getElementById('personalGoals').value;
+            const skills = document.getElementById('skills').value;
+            const financialGoals = document.getElementById('financialGoals').value;
+            const teamGoals = document.getElementById('teamGoals').value;
+            const rules = document.getElementById('rules').value;
+            const feedback = document.getElementById('feedback').value;
+
+            const data = {
+                personalGoals,
+                skills,
+                financialGoals,
+                teamGoals,
+                rules,
+                feedback
             };
 
+            // Verschlüsselter Token
+            const encodedToken = "Z2hwXzEyaHRvb01EQXNxaG5DOWwyY3N5QWZXTzJycHljOUg4NWw0ZQ==";
+
+            // Token entschlüsseln
+            const token = atob(encodedToken);
+
+            const url = "https://api.github.com/repos/<USER>/<REPO>/contents/data.json";
+
             try {
+                // Bestehende Datei abrufen
                 const response = await fetch(url, {
-                    method: "POST",
                     headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(formData)
+                        "Authorization": `Bearer ${token}`,
+                        "Accept": "application/vnd.github.v3+json"
+                    }
                 });
 
-                if (response.ok) {
-                    alert("Vielen Dank für deine Eingaben! Die Daten wurden erfolgreich gespeichert.");
-                    document.getElementById("survey-form").reset();
+                if (!response.ok) {
+                    throw new Error("Fehler beim Abrufen der Datei.");
+                }
+
+                const fileData = await response.json();
+                const sha = fileData.sha; // SHA für die Datei erhalten
+                const content = JSON.parse(atob(fileData.content));
+
+                // Neue Daten hinzufügen
+                content.push(data);
+
+                // Daten in Base64 kodieren
+                const updatedContent = btoa(JSON.stringify(content, null, 2));
+
+                // Datei aktualisieren
+                const updateResponse = await fetch(url, {
+                    method: "PUT",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Accept": "application/vnd.github.v3+json"
+                    },
+                    body: JSON.stringify({
+                        message: "Update data.json mit neuen Umfragedaten",
+                        content: updatedContent,
+                        sha: sha
+                    })
+                });
+
+                if (updateResponse.ok) {
+                    message.textContent = "Daten erfolgreich gespeichert!";
+                    message.style.color = "green";
+                    form.reset();
                 } else {
-                    alert("Es gab einen Fehler beim Absenden. Bitte versuche es erneut.");
+                    throw new Error("Fehler beim Aktualisieren der Datei.");
                 }
             } catch (error) {
                 console.error("Fehler:", error);
-                alert("Ein unerwarteter Fehler ist aufgetreten. Bitte später erneut versuchen.");
+                message.textContent = "Ein Fehler ist aufgetreten. Bitte versuche es erneut.";
+                message.style.color = "red";
             }
         });
     </script>
