@@ -4,63 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team-Umfrage 2025</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #4facfe, #00f2fe);
+            color: #333;
+        }
+
+        header {
+            background: #003c8f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .container h2 {
+            color: #003c8f;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #003c8f;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            background: #003c8f;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #003c8f;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Team-Umfrage 2025</h1>
-    <form id="survey-form">
-        <label for="personalGoals">Persönliche Ziele:</label>
-        <input type="text" id="personalGoals" name="personalGoals" placeholder="Deine Ziele für 2025" required><br><br>
+    <header>
+        <h1>Team-Umfrage 2025</h1>
+    </header>
 
-        <label for="skills">Fähigkeiten, die du entwickeln möchtest:</label>
-        <input type="text" id="skills" name="skills" placeholder="Welche Skills möchtest du lernen?" required><br><br>
+    <div class="container">
+        <h2>Teile deine Ziele und Ideen mit uns</h2>
+        <form id="survey-form">
+            <label for="personalGoals">Persönliche Ziele für 2025:</label>
+            <input type="text" id="personalGoals" name="personalGoals" placeholder="Z. B.: Teamleiter werden, tägliches Joggen" required>
 
-        <label for="financialGoals">Finanzielle Ziele:</label>
-        <input type="text" id="financialGoals" name="financialGoals" placeholder="Deine finanziellen Ziele" required><br><br>
+            <label for="skills">Fähigkeiten, die du entwickeln möchtest:</label>
+            <input type="text" id="skills" name="skills" placeholder="Z. B.: Programmieren, Fremdsprachen lernen" required>
 
-        <label for="teamGoals">Teamziele:</label>
-        <textarea id="teamGoals" name="teamGoals" placeholder="Welche Ziele hat dein Team?" required></textarea><br><br>
+            <label for="financialGoals">Finanzielle Ziele:</label>
+            <input type="text" id="financialGoals" name="financialGoals" placeholder="Z. B.: 10.000 Euro sparen" required>
 
-        <label for="feedback">Feedback oder Vorschläge:</label>
-        <textarea id="feedback" name="feedback" placeholder="Hast du Vorschläge oder Feedback?" required></textarea><br><br>
+            <label for="teamGoals">Teamziele:</label>
+            <textarea id="teamGoals" name="teamGoals" placeholder="Welche Ziele möchtest du mit deinem Team erreichen?"></textarea>
 
-        <button type="submit">Absenden</button>
-    </form>
+            <label for="rules">Regeln/Vorsätze für das Jahr 2025:</label>
+            <textarea id="rules" name="rules" placeholder="Z. B.: Kein Alkohol, Pünktlichkeit"></textarea>
+
+            <label for="feedback">Feedback oder Vorschläge:</label>
+            <textarea id="feedback" name="feedback" placeholder="Teile uns deine Ideen oder Verbesserungsvorschläge mit"></textarea>
+
+            <button type="submit">Absenden</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Team-Umfrage. Alle Rechte vorbehalten.</p>
+    </footer>
 
     <script>
         document.getElementById("survey-form").addEventListener("submit", async function(e) {
             e.preventDefault();
 
-            // URL zu deiner data.json-Datei im Repository
-            const url = "https://api.github.com/repos/<USER>/<REPO>/contents/data.json";
+            const url = "https://script.google.com/macros/s/AKfycbxR-u6Na8U3XhEBI2YNpvlW6tAqkbQhbk8cYqBnQ2hqROF-j7vZkbm85RV3SPTIOTAZxg/exec";
 
-            // Formulardaten
             const formData = {
                 personalGoals: document.getElementById("personalGoals").value,
                 skills: document.getElementById("skills").value,
                 financialGoals: document.getElementById("financialGoals").value,
                 teamGoals: document.getElementById("teamGoals").value,
-                feedback: document.getElementById("feedback").value,
+                rules: document.getElementById("rules").value,
+                feedback: document.getElementById("feedback").value
             };
 
             try {
-                // Daten speichern (Token muss serverseitig bereitgestellt werden)
                 const response = await fetch(url, {
-                    method: "POST", // Ändere nach Bedarf
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(formData),
+                    body: JSON.stringify(formData)
                 });
 
                 if (response.ok) {
-                    alert("Daten erfolgreich gespeichert!");
+                    alert("Vielen Dank für deine Eingaben! Die Daten wurden erfolgreich gespeichert.");
+                    document.getElementById("survey-form").reset();
                 } else {
-                    console.error(await response.text());
-                    alert("Fehler beim Speichern der Daten.");
+                    alert("Es gab einen Fehler beim Absenden. Bitte versuche es erneut.");
                 }
             } catch (error) {
                 console.error("Fehler:", error);
-                alert("Ein unerwarteter Fehler ist aufgetreten.");
+                alert("Ein unerwarteter Fehler ist aufgetreten. Bitte später erneut versuchen.");
             }
         });
     </script>
