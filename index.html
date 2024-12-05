@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team-Umfrage 2025</title>
+    <title>GitHub JSON Speichern</title>
 </head>
 <body>
     <h1>Team-Umfrage 2025</h1>
@@ -11,60 +11,54 @@
         <label for="personalGoals">Persönliche Ziele:</label>
         <input type="text" id="personalGoals" name="personalGoals" required><br><br>
 
-        <label for="skills">Fähigkeiten, die du lernen möchtest:</label>
-        <input type="text" id="skills" name="skills"><br><br>
-
-        <label for="financialGoals">Finanzielle Ziele:</label>
-        <input type="text" id="financialGoals" name="financialGoals"><br><br>
-
-        <label for="habits">Gewohnheiten, die du ändern möchtest:</label>
-        <input type="text" id="habits" name="habits"><br><br>
-
-        <label for="teamGoals">Teamziele:</label>
-        <input type="text" id="teamGoals" name="teamGoals"><br><br>
-
-        <label for="teamImprovement">Verbesserungen fürs Team:</label>
-        <input type="text" id="teamImprovement" name="teamImprovement"><br><br>
-
-        <label for="teamEvents">Ideen für Team-Events:</label>
-        <input type="text" id="teamEvents" name="teamEvents"><br><br>
-
-        <label for="rules">Regeln:</label>
-        <input type="text" id="rules" name="rules"><br><br>
-
-        <label for="teamExpectations">Erwartungen ans Team:</label>
-        <input type="text" id="teamExpectations" name="teamExpectations"><br><br>
-
-        <label for="milestones">Meilensteine:</label>
-        <input type="text" id="milestones" name="milestones"><br><br>
-
-        <label for="rewards">Belohnungen:</label>
-        <input type="text" id="rewards" name="rewards"><br><br>
-
-        <label for="investments">Investitionen:</label>
-        <input type="text" id="investments" name="investments"><br><br>
-
         <label for="feedback">Feedback:</label>
-        <textarea id="feedback" name="feedback"></textarea><br><br>
+        <textarea id="feedback" name="feedback" required></textarea><br><br>
 
         <button type="submit">Absenden</button>
     </form>
 
     <script>
-        document.getElementById("survey-form").addEventListener("submit", function(e) {
+        document.getElementById("survey-form").addEventListener("submit", async function(e) {
             e.preventDefault();
 
-            const url = "https://script.google.com/macros/s/AKfycbxR-u6Na8U3XhEBI2YNpvlW6tAqkbQhbk8cYqBnQ2hqROF-j7vZkbm85RV3SPTIOTAZxg/exec";
-            const formData = new FormData(this);
+            const url = "https://api.github.com/repos/<USER>/<REPO>/contents/data.json"; // REPO ersetzen
+            const token = "dein-github-access-token"; // Hier dein Token einfügen
 
-            fetch(url, {
-                method: "POST",
-                body: JSON.stringify(Object.fromEntries(formData)),
-                headers: { "Content-Type": "application/json" }
-            })
-            .then(response => response.json())
-            .then(data => alert(data.message))
-            .catch(error => alert("Fehler beim Senden der Daten: " + error.message));
+            const formData = {
+                personalGoals: document.getElementById("personalGoals").value,
+                feedback: document.getElementById("feedback").value,
+            };
+
+            const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Accept": "application/vnd.github+json",
+                },
+            });
+
+            const currentContent = response.ok
+                ? atob((await response.json()).content)
+                : "[]";
+
+            const updatedContent = JSON.stringify([...JSON.parse(currentContent), formData], null, 2);
+
+            const encodedContent = btoa(updatedContent);
+
+            await fetch(url, {
+                method: "PUT",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Accept": "application/vnd.github+json",
+                },
+                body: JSON.stringify({
+                    message: "Update data.json",
+                    content: encodedContent,
+                    sha: response.ok ? (await response.json()).sha : undefined,
+                }),
+            });
+
+            alert("Daten erfolgreich gespeichert!");
         });
     </script>
 </body>
