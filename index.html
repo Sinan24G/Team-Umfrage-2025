@@ -79,8 +79,6 @@
       font-size:14px;
       box-shadow: 0 12px 24px rgba(0,0,0,.35);
     }
-
-    /* BRAND TEXT: erst Wir für Aßlar, darunter Liste 3 */
     .brand b{font-size:16px; letter-spacing:.2px; display:block}
     .brand span{display:block; font-size:12px; color:var(--muted)}
 
@@ -200,7 +198,6 @@
       text-shadow: 0 18px 48px rgba(226,0,26,.18);
     }
 
-    /* Wahlzettel-Box */
     .ballot{
       margin-top:8px;
       padding:14px;
@@ -277,7 +274,6 @@
       background: linear-gradient(135deg, var(--pfeifferRed), var(--pfeifferRed2));
     }
 
-    /* Checks */
     .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px}
     .li{display:flex; gap:10px; align-items:flex-start; color:var(--muted)}
     .badge{
@@ -312,7 +308,6 @@
       white-space:nowrap;
     }
 
-    /* TEAM */
     .person{display:flex; gap:14px; align-items:flex-start}
     .avatar{
       width:54px; height:54px; border-radius:18px;
@@ -345,7 +340,6 @@
       font-size:11px;
     }
 
-    /* TRANSPARENZ */
     .timeline{display:grid; gap:12px; margin-top:12px}
     .update{
       padding:14px;
@@ -364,7 +358,6 @@
       color:var(--muted);
     }
 
-    /* FOOTER */
     .footer{
       padding:26px 0 34px;
       border-top:1px solid rgba(255,255,255,.12);
@@ -373,7 +366,6 @@
       font-size:13px;
     }
 
-    /* STICKY */
     .sticky{
       position:fixed;
       left:12px; right:12px; bottom:12px;
@@ -454,8 +446,6 @@
   </header>
 
   <main id="top">
-
-    <!-- HERO -->
     <section class="hero" id="wahl">
       <div class="wrap">
         <div class="heroGrid">
@@ -493,11 +483,12 @@
           <div class="card heroSide">
             <div class="election">
               <b>Wahltermin: 17.03</b>
+
+              <!-- HIER IST DIE "23" MIT IM TEXT -->
               <div class="muted" style="font-size:13px; margin-top:6px">
-                Geh wählen. Liste 3 ankreuzen. Wir für Aßlar.
+                Noch <b style="color:#fff">23 Tage</b> – geh wählen. Liste 3 ankreuzen. Wir für Aßlar.
               </div>
 
-              <!-- NUR TAGE -->
               <div class="countdown" aria-live="polite">
                 <div class="cd"><strong id="dDays">--</strong><span>Tage bis zur Wahl</span></div>
               </div>
@@ -522,7 +513,6 @@
       </div>
     </section>
 
-    <!-- WOFÜR WIR STEHEN -->
     <section id="themen">
       <div class="wrap">
         <div class="splitTitle">
@@ -599,7 +589,6 @@
       </div>
     </section>
 
-    <!-- MANIFEST -->
     <section id="manifest">
       <div class="wrap">
         <div class="splitTitle">
@@ -639,7 +628,6 @@
       </div>
     </section>
 
-    <!-- TEAM -->
     <section id="team">
       <div class="wrap">
         <div class="splitTitle">
@@ -651,7 +639,6 @@
       </div>
     </section>
 
-    <!-- TRANSPARENZ -->
     <section id="transparenz">
       <div class="wrap">
         <div class="splitTitle">
@@ -660,7 +647,6 @@
         </div>
 
         <div class="grid2">
-          <!-- ÜBERARBEITET -->
           <div class="box">
             <h3>So halten wir euch wirklich auf dem Laufenden</h3>
 
@@ -742,7 +728,6 @@
     </footer>
   </main>
 
-  <!-- STICKY BANNER -->
   <div class="sticky" role="region" aria-label="Wahlhinweis">
     <div class="stickyInner">
       <div class="stickyText">
