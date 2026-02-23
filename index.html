@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wir für Aßlar – Liste 3</title>
-  <meta name="description" content="Wir für Aßlar – Liste 3. Wahlwerbung zur Betriebsratswahl am 17.03. Teams Kontakt + persönlich in den Abteilungen." />
+  <meta name="description" content="Wir für Aßlar – Liste 3. Wahlwerbung zur Betriebsratswahl am 17.03. Teams Kontakt und persönlich in den Abteilungen." />
 
   <style>
     :root{
@@ -206,7 +206,7 @@
       text-shadow: 0 18px 48px rgba(226,0,26,.18);
     }
 
-    /* Wahlzettel-Box */
+    /* Wahlzettel */
     .ballot{
       margin-top:8px;
       padding:14px;
@@ -242,7 +242,7 @@
 
     .heroSide{display:flex; flex-direction:column; gap:12px; padding:18px}
 
-    /* ELECTION BOX */
+    /* Wahl Box */
     .election{
       border:1px solid rgba(255,255,255,.14);
       background: linear-gradient(135deg, rgba(226,0,26,.26), rgba(255,255,255,.04));
@@ -307,7 +307,6 @@
       box-shadow: 0 0 0 5px rgba(226,0,26,.08);
       margin-top:1px;
     }
-    .badge svg{display:block}
 
     .topic{position:relative; overflow:hidden}
     .topic:after{
@@ -392,7 +391,7 @@
       color:var(--muted);
     }
 
-    /* FOOTER */
+    /* Footer */
     .footer{
       padding:26px 0 34px;
       border-top:1px solid rgba(255,255,255,.12);
@@ -400,8 +399,23 @@
       color:var(--muted);
       font-size:13px;
     }
+    .footerLinks{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .footerLinks a{
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+    }
+    .footerLinks a:hover{color:var(--text)}
 
-    /* STICKY */
+    /* Sticky */
     .sticky{
       position:fixed;
       left:12px; right:12px; bottom:12px;
@@ -429,7 +443,7 @@
     .btnSmall{padding:10px 12px; border-radius:14px; font-size:13px}
     .btnGhost{background: rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.16)}
 
-    /* MOBILE */
+    /* Mobile */
     @media (max-width: 980px){
       .heroGrid{grid-template-columns:1fr}
       .grid3{grid-template-columns:1fr}
@@ -506,6 +520,8 @@
           <a href="#manifest">Unser Manifest</a>
           <a class="cta" href="#team">Team</a>
           <a href="#transparenz">Transparenz</a>
+          <a href="#impressum">Impressum</a>
+          <a href="#datenschutz">Datenschutz</a>
         </nav>
       </div>
     </div>
@@ -532,7 +548,7 @@
                 <div class="checkBox" aria-hidden="true"></div>
                 <div class="ballotText">
                   <b>Liste 3 ankreuzen</b>
-                  <span>Wir für Aßlar – am 17.03 zählt jede Stimme.</span>
+                  <span>Wir für Aßlar. Am 17.03 zählt jede Stimme.</span>
                 </div>
               </div>
 
@@ -552,7 +568,7 @@
               <b>Wahltermin: 17.03</b>
 
               <div class="muted" style="font-size:13px; margin-top:8px">
-              Geh wählen. Liste 3 ankreuzen. Wir für Aßlar.
+                Geh wählen. Liste 3 ankreuzen. Wir für Aßlar.
               </div>
 
               <div class="countdown" aria-live="polite">
@@ -566,7 +582,7 @@
             <div class="box">
               <b style="display:block; margin-bottom:6px">Wie erreicht ihr uns</b>
               <p class="muted" style="font-size:13px">
-                Über Teams oder persönlich. Wir sind in jeder Abteilung vertreten – kommt auf uns zu.
+                Über Teams oder persönlich. Wir sind in jeder Abteilung vertreten. Kommt auf uns zu.
               </p>
             </div>
 
@@ -594,8 +610,8 @@
             <div class="topicHead"><h3>Arbeitszeit</h3><span class="chip">planbar</span></div>
             <p class="muted">Klare Regeln, planbare Abläufe, weniger Überraschungen.</p>
             <ul class="list">
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Planbarkeit im Alltag</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Transparente Abläufe</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Planbarkeit im Alltag</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Transparente Abläufe</span></li>
             </ul>
           </div>
 
@@ -603,8 +619,8 @@
             <div class="topicHead"><h3>Entgelt</h3><span class="chip">gerecht</span></div>
             <p class="muted">Verständlich, nachvollziehbar, gleiche Maßstäbe für alle.</p>
             <ul class="list">
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Nachvollziehbare Grundlagen</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Fairness statt Bauchgefühl</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Nachvollziehbare Grundlagen</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Fairness statt Bauchgefühl</span></li>
             </ul>
           </div>
 
@@ -612,8 +628,8 @@
             <div class="topicHead"><h3>Mitbestimmung</h3><span class="chip">mitnehmen</span></div>
             <p class="muted">Nicht erst informieren, wenn alles entschieden ist.</p>
             <ul class="list">
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Frühzeitig einbeziehen</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Rückmeldungen ernst nehmen</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Frühzeitig einbeziehen</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Rückmeldungen ernst nehmen</span></li>
             </ul>
           </div>
 
@@ -621,8 +637,8 @@
             <div class="topicHead"><h3>Transparenz</h3><span class="chip">klartext</span></div>
             <p class="muted">Wir erklären Entscheidungen: warum, wie, was als nächstes.</p>
             <ul class="list">
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Keine Hinterzimmer Kommunikation</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Status Updates mit nächstem Schritt</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Keine Hinterzimmer Kommunikation</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Status Updates mit nächstem Schritt</span></li>
             </ul>
           </div>
 
@@ -630,8 +646,8 @@
             <div class="topicHead"><h3>Multikulturell</h3><span class="chip">respekt</span></div>
             <p class="muted">Zusammenhalt statt Spaltung. Respekt im Alltag.</p>
             <ul class="list">
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Team statt Lager</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Respekt ist Standard</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Team statt Lager</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Respekt ist Standard</span></li>
             </ul>
           </div>
 
@@ -639,8 +655,8 @@
             <div class="topicHead"><h3>Beschäftigungssicherung</h3><span class="chip">zukunft</span></div>
             <p class="muted">Arbeitsplätze sichern und Standort Aßlar stärken.</p>
             <ul class="list">
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Standort stärken</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Zukunft im Blick</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Standort stärken</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Zukunft im Blick</span></li>
             </ul>
           </div>
 
@@ -648,8 +664,8 @@
             <div class="topicHead"><h3>Manteltarifvertrag</h3><span class="chip">schutz</span></div>
             <p class="muted">Tarif sichern und verständlich machen, was gilt und warum.</p>
             <ul class="list">
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Regeln verständlich erklären</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Tarif als Schutz für alle</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Regeln verständlich erklären</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span>Tarif als Schutz für alle</span></li>
             </ul>
           </div>
         </div>
@@ -669,7 +685,7 @@
               <h3>Unsere Haltung</h3>
               <p class="muted" style="margin-top:10px">
                 <b style="color:#fff">Kompetenz</b> bedeutet nachvollziehbare Entscheidungen.<br><br>
-                <b style="color:#fff">Konstruktiv</b> heißt, die Belegschaft mitzunehmen – nicht erst informieren, wenn alles entschieden ist.<br><br>
+                <b style="color:#fff">Konstruktiv</b> heißt, die Belegschaft mitzunehmen. Nicht erst informieren, wenn alles entschieden ist.<br><br>
                 <b style="color:#fff">Erfahrung</b> ist gut. <b style="color:#fff">Biss</b> ist besser.<br><br>
                 Wir bringen beides zusammen: ruhig in der Sache, hartnäckig im Ergebnis.
               </p>
@@ -678,10 +694,10 @@
             <div class="box">
               <h3>Wie wir arbeiten</h3>
               <ul class="list">
-                <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wir sagen frühzeitig, was gerade läuft</span></li>
-                <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wir erklären Entscheidungen in normaler Sprache</span></li>
-                <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wir bleiben dran, bis ein Thema sauber abgeschlossen ist</span></li>
-                <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wir sind ansprechbar: Teams oder persönlich</span></li>
+                <li class="li"><span class="badge" aria-hidden="true"></span><span>Wir sagen frühzeitig, was gerade läuft</span></li>
+                <li class="li"><span class="badge" aria-hidden="true"></span><span>Wir erklären Entscheidungen in normaler Sprache</span></li>
+                <li class="li"><span class="badge" aria-hidden="true"></span><span>Wir bleiben dran, bis ein Thema sauber abgeschlossen ist</span></li>
+                <li class="li"><span class="badge" aria-hidden="true"></span><span>Wir sind ansprechbar: Teams oder persönlich</span></li>
               </ul>
               <div class="btnrow">
                 <a class="btn btnPrimary" href="#team">Team ansehen</a>
@@ -697,7 +713,7 @@
       <div class="wrap">
         <div class="splitTitle">
           <h2>Team Liste 3</h2>
-          <p class="muted">Teams oder persönlich – kommt auf uns zu.</p>
+          <p class="muted">Kontakt nur über Teams Button oder persönlich in den Abteilungen.</p>
         </div>
 
         <div class="grid3" id="teamGrid"></div>
@@ -717,14 +733,14 @@
 
             <p class="muted" style="margin-top:10px">
               Transparenz heißt nicht: viel reden. Transparenz heißt: kurz sagen, was Sache ist.
-              Deshalb bekommt ihr Updates in einem festen Format – immer gleich, immer verständlich.
+              Deshalb bekommt ihr Updates in einem festen Format. Immer gleich. Immer verständlich.
             </p>
 
             <ul class="list" style="margin-top:12px">
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b style="color:#fff">Thema</b> – worum geht’s</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b style="color:#fff">Stand</b> – was ist passiert / was ist geklärt</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b style="color:#fff">Nächster Schritt</b> – was passiert als nächstes</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b style="color:#fff">Ansprechpartner</b> – wer ist dran</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span><b style="color:#fff">Thema</b> worum geht es</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span><b style="color:#fff">Stand</b> was ist passiert oder geklärt</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span><b style="color:#fff">Nächster Schritt</b> was passiert als nächstes</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"></span><span><b style="color:#fff">Ansprechpartner</b> wer ist dran</span></li>
             </ul>
 
             <div style="margin-top:12px; padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
@@ -768,20 +784,96 @@
       </div>
     </section>
 
+    <!-- IMPRESSUM -->
+    <section id="impressum">
+      <div class="wrap">
+        <div class="splitTitle">
+          <h2>Impressum</h2>
+          <p class="muted">Pflichtangaben</p>
+        </div>
+
+        <div class="card" style="padding:22px">
+          <div class="box">
+            <p class="muted">
+              Verantwortlich für den Inhalt dieser Website gemäß § 18 Abs. 2 MStV:<br><br>
+
+              <b style="color:#fff">[Name der verantwortlichen Person]</b><br>
+              <b style="color:#fff">[Ladungsfähige Anschrift]</b><br><br>
+
+              Kontakt: Teams oder persönlich in den Abteilungen.<br><br>
+
+              Diese Website ist private Wahlwerbung zur Betriebsratswahl. Nicht im Auftrag der Unternehmensleitung.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATENSCHUTZ -->
+    <section id="datenschutz">
+      <div class="wrap">
+        <div class="splitTitle">
+          <h2>Datenschutz</h2>
+          <p class="muted">Informationen zur Datenverarbeitung</p>
+        </div>
+
+        <div class="card" style="padding:22px">
+          <div class="grid2">
+            <div class="box">
+              <h3>1 Verantwortlicher</h3>
+              <p class="muted" style="margin-top:10px">
+                Verantwortlich für die Verarbeitung personenbezogener Daten auf dieser Website ist:<br><br>
+                <b style="color:#fff">[Name der verantwortlichen Person]</b><br>
+                <b style="color:#fff">[Ladungsfähige Anschrift]</b><br><br>
+                Kontakt: Teams oder persönlich in den Abteilungen.
+              </p>
+            </div>
+
+            <div class="box">
+              <h3>2 Hosting über GitHub Pages</h3>
+              <p class="muted" style="margin-top:10px">
+                Diese Website wird über GitHub Pages bereitgestellt. Beim Aufruf der Website werden technisch notwendige Daten verarbeitet,
+                zum Beispiel IP Adresse, Zeitpunkt, Browser Informationen, um die Website auszuliefern und die Sicherheit zu gewährleisten.
+              </p>
+
+              <h3 style="margin-top:14px">3 Teamdarstellung und Teams Links</h3>
+              <p class="muted" style="margin-top:10px">
+                Auf der Website werden Teamdaten veröffentlicht, zum Beispiel Name, Listenplatz und Foto. Dies erfolgt auf Basis einer Einwilligung der betroffenen Personen.
+                Wenn du einen Teams Button nutzt, öffnet sich Microsoft Teams. Ab diesem Zeitpunkt verarbeitet Microsoft Daten eigenverantwortlich.
+              </p>
+
+              <h3 style="margin-top:14px">4 Tracking</h3>
+              <p class="muted" style="margin-top:10px">
+                Wir setzen kein eigenes Tracking und keine eigenen Cookies ein.
+              </p>
+
+              <p class="muted" style="margin-top:14px; font-size:12px">
+                Stand: <b style="color:#fff">[Datum]</b>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer">
       <div class="wrap">
         <div class="grid2">
           <div>
-            <b style="color:var(--text)">Wir für Aßlar – Liste 3</b>
+            <b style="color:var(--text)">Wir für Aßlar. Liste 3.</b>
             <p style="margin-top:8px">
               Private Wahlwerbung zur Betriebsratswahl. Nicht im Auftrag der Unternehmensleitung.
             </p>
-            <p style="margin-top:10px"><a href="#top" class="muted">Nach oben</a></p>
+            <div class="footerLinks">
+              <a href="#impressum">Impressum</a>
+              <a href="#datenschutz">Datenschutz</a>
+              <a href="#top">Nach oben</a>
+            </div>
           </div>
           <div>
             <b style="color:var(--text)">Kontakt</b>
             <p style="margin-top:8px">
-              Über Teams oder persönlich in den Abteilungen – kommt auf uns zu.
+              Kontakt nur über Teams Button oder persönlich in den Abteilungen.
             </p>
             <p class="muted" style="margin-top:10px">
               Wichtig: <b>Am 17.03 wählen gehen</b>.
@@ -795,7 +887,7 @@
   <div class="sticky" role="region" aria-label="Wahlhinweis">
     <div class="stickyInner">
       <div class="stickyText">
-        <b>Am 17.03 wählen gehen – Wir für Aßlar – Liste 3</b>
+        <b>Am 17.03 wählen gehen. Wir für Aßlar. Liste 3.</b>
         <span>Liste 3 ankreuzen. Jede Stimme zählt.</span>
       </div>
       <div class="stickyBtns">
@@ -833,9 +925,7 @@
     updateCountdown();
     setInterval(updateCountdown, 60 * 60 * 1000);
 
-    // FOTO NAMING SCHEME:
-    // assets/img/team/01-stefan-haebich.png, 02-angelo-floris.png, ...
-    // => wird AUTOMATISCH aus Listenplatz + Vorname + Nachname gebaut
+    // Foto Schema: assets/img/team/01-stefan-haebich.png
     const PHOTO_BASE = "assets/img/team/";
 
     const team = [
@@ -891,8 +981,6 @@
     }
 
     function photoPath(person){
-      // EXAKT nach deinem Schema:
-      // 01-stefan-haebich.png
       const slot = pad2(person.slot);
       const first = cleanSlug(person.first);
       const last  = cleanSlug(person.last);
@@ -952,7 +1040,7 @@
                 <a class="btn btnPrimary" target="_blank" rel="noopener" href="${teamsLink}">Teams Chat starten</a>
               </div>
 
-              <div class="muted" style="font-size:12px; margin-top:10px; word-break:break-word">${email}</div>
+              <!-- Email Anzeige entfernt. Teams Link bleibt. -->
             </div>
           </div>
         </div>
