@@ -232,13 +232,6 @@
     .ballotText span{display:block; font-size:13px; color:var(--muted)}
 
     .heroSide{display:flex; flex-direction:column; gap:12px; padding:18px}
-    .taglist{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .tag{
-      font-size:12px; padding:8px 10px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      color:var(--muted);
-    }
 
     .election{
       border:1px solid rgba(255,255,255,.14);
@@ -251,14 +244,14 @@
       display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
     }
     .cd{
-      min-width:90px;
+      min-width:170px;
       padding:10px 12px;
       border-radius:16px;
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.04);
       text-align:center;
     }
-    .cd strong{display:block; font-size:18px}
+    .cd strong{display:block; font-size:22px}
     .cd span{display:block; font-size:11px; color:var(--muted)}
 
     .btnrow{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
@@ -478,7 +471,6 @@
                 Wichtig ist jetzt nur eins: <b>am 17.03 wählen gehen</b>.
               </p>
 
-              <!-- Ankreuz Box -->
               <div class="ballot">
                 <div class="checkBox" aria-hidden="true"></div>
                 <div class="ballotText">
@@ -502,13 +494,12 @@
             <div class="election">
               <b>Wahltermin: 17.03</b>
               <div class="muted" style="font-size:13px; margin-top:6px">
-                Jede Stimme zählt. Bitte nimm dir die Zeit und geh wählen.
+                Geh wählen. Liste 3 ankreuzen. Wir für Aßlar.
               </div>
 
+              <!-- NUR TAGE -->
               <div class="countdown" aria-live="polite">
-                <div class="cd"><strong id="dDays">--</strong><span>Tage</span></div>
-                <div class="cd"><strong id="dHours">--</strong><span>Stunden</span></div>
-                <div class="cd"><strong id="dMins">--</strong><span>Minuten</span></div>
+                <div class="cd"><strong id="dDays">--</strong><span>Tage bis zur Wahl</span></div>
               </div>
             </div>
 
@@ -531,7 +522,7 @@
       </div>
     </section>
 
-    <!-- WOFÜR WIR STEHEN (alle Punkte als eigene Kachel) -->
+    <!-- WOFÜR WIR STEHEN -->
     <section id="themen">
       <div class="wrap">
         <div class="splitTitle">
@@ -572,7 +563,7 @@
             <div class="topicHead"><h3>Transparenz</h3><span class="chip">klartext</span></div>
             <p class="muted">Wir erklären Entscheidungen: warum, wie, was als nächstes.</p>
             <ul class="list">
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Keine Hinterzimmer Kommunikation</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Keine Hinterzimmer-Kommunikation</span></li>
               <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Status Updates mit nächstem Schritt</span></li>
             </ul>
           </div>
@@ -608,7 +599,7 @@
       </div>
     </section>
 
-    <!-- MANIFEST (ausgebaut) -->
+    <!-- MANIFEST -->
     <section id="manifest">
       <div class="wrap">
         <div class="splitTitle">
@@ -625,7 +616,7 @@
                 <b style="color:#fff">Kompetenz</b> bedeutet nachvollziehbare Entscheidungen.<br><br>
                 <b style="color:#fff">Konstruktiv</b> heißt, die Belegschaft mitzunehmen – nicht erst informieren, wenn alles entschieden ist.<br><br>
                 <b style="color:#fff">Erfahrung</b> ist gut. <b style="color:#fff">Biss</b> ist besser.<br><br>
-                Wir bringen beides zusammen: Ruhe in der Sache, hartnäckig im Ergebnis.
+                Wir bringen beides zusammen: ruhig in der Sache, hartnäckig im Ergebnis.
               </p>
             </div>
 
@@ -660,7 +651,7 @@
       </div>
     </section>
 
-    <!-- TRANSPARENZ (ausgebaut) -->
+    <!-- TRANSPARENZ -->
     <section id="transparenz">
       <div class="wrap">
         <div class="splitTitle">
@@ -669,17 +660,28 @@
         </div>
 
         <div class="grid2">
+          <!-- ÜBERARBEITET -->
           <div class="box">
-            <h3>So machen wir Updates</h3>
-            <ul class="list">
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Was ist das Thema</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wo stehen wir gerade</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Was ist der nächste Schritt</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wer ist Ansprechpartner im Team</span></li>
-            </ul>
+            <h3>So halten wir euch wirklich auf dem Laufenden</h3>
+
             <p class="muted" style="margin-top:10px">
-              Keine Romane. Kein Rumdrucksen. Kurze Updates, die jeder versteht.
+              Transparenz heißt nicht: viel reden. Transparenz heißt: kurz sagen, was Sache ist.
+              Deshalb bekommt ihr Updates in einem festen Format – immer gleich, immer verständlich.
             </p>
+
+            <ul class="list" style="margin-top:12px">
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b style="color:#fff">Thema</b> – worum geht’s</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b style="color:#fff">Stand</b> – was ist passiert / was ist geklärt</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b style="color:#fff">Nächster Schritt</b> – was passiert als nächstes</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b style="color:#fff">Ansprechpartner</b> – wer ist dran</span></li>
+            </ul>
+
+            <div style="margin-top:12px; padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
+              <b style="display:block">Unser Stil</b>
+              <p class="muted" style="margin-top:6px">
+                Keine Romane. Kein Rumdrucksen. Keine Gerüchte. Sondern klare Updates, die jeder versteht.
+              </p>
+            </div>
           </div>
 
           <div class="box">
@@ -759,36 +761,25 @@
     const menu = document.getElementById('menu');
     burger?.addEventListener('click', () => menu.classList.toggle('open'));
 
-    // Countdown zur Wahl (17.03.2026 08:00 lokale Zeit)
+    // Countdown zur Wahl (nur Tage)
     const electionDate = new Date(2026, 2, 17, 8, 0, 0);
     function updateCountdown(){
       const now = new Date();
       const diff = electionDate - now;
 
       const daysEl = document.getElementById('dDays');
-      const hoursEl = document.getElementById('dHours');
-      const minsEl = document.getElementById('dMins');
-
-      if(!daysEl || !hoursEl || !minsEl) return;
+      if(!daysEl) return;
 
       if(diff <= 0){
         daysEl.textContent = "0";
-        hoursEl.textContent = "0";
-        minsEl.textContent = "0";
         return;
       }
 
-      const totalMins = Math.floor(diff / 60000);
-      const days = Math.floor(totalMins / (60*24));
-      const hours = Math.floor((totalMins - days*60*24) / 60);
-      const mins = totalMins - days*60*24 - hours*60;
-
+      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
       daysEl.textContent = String(days);
-      hoursEl.textContent = String(hours);
-      minsEl.textContent = String(mins);
     }
     updateCountdown();
-    setInterval(updateCountdown, 30000);
+    setInterval(updateCountdown, 60 * 60 * 1000);
 
     const team = [
       { slot: 1, first: "Stefan", last: "Haebich", role: "Listenvertreter" },
