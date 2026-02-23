@@ -50,9 +50,9 @@
       border-bottom:1px solid var(--line);
     }
     .navInner{
-      display:grid;
-      grid-template-columns: 1fr auto 1fr;
+      display:flex;
       align-items:center;
+      justify-content:space-between;
       padding:14px 0;
       gap:14px;
       position:relative;
@@ -61,7 +61,6 @@
       display:flex; align-items:center; gap:12px;
       text-decoration:none;
       min-width:240px;
-      justify-self:start;
     }
     .logoBox{
       width:42px; height:42px; border-radius:14px;
@@ -91,22 +90,30 @@
     .brand b{font-size:16px; letter-spacing:.2px; display:block}
     .brand span{display:block; font-size:12px; color:var(--muted)}
 
-    /* Center logo image */
-    .centerLogo{
-      justify-self:center;
-      display:flex; align-items:center; justify-content:center;
-      min-width:120px;
+    /* Big floating logo (independent) */
+    .heroLogo{
+      position:relative;
+      margin: 14px auto 0;
+      max-width: var(--max);
+      padding: 0 var(--pad);
+      z-index: 10;
+      pointer-events:none;
     }
-    .centerLogo img{
-      height:34px;
-      max-width:220px;
+    .heroLogoInner{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .heroLogoInner img{
+      height: 92px;               /* BIG */
+      max-width: min(540px, 92vw);
       object-fit:contain;
       display:block;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
+      filter: drop-shadow(0 22px 40px rgba(0,0,0,.55));
+      opacity: .98;
     }
 
     /* Dropdown */
-    .navActions{justify-self:end; display:flex; align-items:center; gap:10px}
     .menuBtn{
       display:inline-flex; align-items:center; gap:10px;
       padding:10px 12px;
@@ -205,11 +212,11 @@
       background: rgba(255,255,255,.04);
       min-width:0;
     }
-    .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px}
     .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px}
 
     /* HERO */
-    .hero{padding:46px 0 14px}
+    .hero{padding:22px 0 14px} /* reduced top because logo is separate */
     .heroGrid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -350,6 +357,11 @@
       background: linear-gradient(135deg, var(--pfeifferRed), var(--pfeifferRed2));
     }
     .btnGhost{background: rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.16)}
+    .btnCenterWrap{
+      display:flex;
+      justify-content:center;
+      margin-top:14px;
+    }
 
     /* Team */
     .person{display:flex; gap:14px; align-items:flex-start; min-width:0}
@@ -393,49 +405,7 @@
       font-size:11px;
     }
 
-    /* Team filter */
-    .filterBar{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin:10px 0 14px;
-    }
-    .chipBtn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      color:var(--muted);
-      font-weight:900;
-      cursor:pointer;
-      user-select:none;
-    }
-    .chipBtn:hover{color:var(--text); background: rgba(255,255,255,.06)}
-    .chipBtn.active{
-      color:var(--white);
-      background: linear-gradient(135deg, var(--pfeifferRed), var(--pfeifferRed2));
-      border:1px solid rgba(255,255,255,.12);
-    }
-
-    /* Team collapse */
-    .teamControls{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      margin-top:10px;
-    }
-    .teamCount{
-      color:var(--muted);
-      font-size:12px;
-      font-weight:800;
-    }
-
-    /* Accordion (Details) */
+    /* Accordion */
     details.acc{
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
@@ -467,9 +437,6 @@
     }
     details[open].acc .accChevron{transform: rotate(180deg)}
     .accBody{padding:0 16px 16px}
-    .accBody p{margin-top:8px}
-    .accBody ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
-    .accBody li{margin:6px 0}
 
     /* Footer */
     .footer{
@@ -531,14 +498,14 @@
       .slogan{font-size:46px}
       .heroCard{min-height:auto}
       .dropdown{top:66px}
-      .centerLogo img{height:30px; max-width:180px}
+      .heroLogoInner img{height:78px; max-width:min(480px, 94vw)}
     }
     @media (max-width: 560px){
       :root{ --pad:16px; }
       section{padding:22px 0}
       h2{font-size:26px}
       h3{font-size:17px}
-      .hero{padding:28px 0 10px}
+      .hero{padding:18px 0 10px}
       .heroCard{padding:18px}
       .heroSide{padding:14px}
       .slogan{font-size:40px}
@@ -557,7 +524,7 @@
       .stickyBtns{width:100%}
       .stickyBtns .btn{flex:1 1 100%}
 
-      .centerLogo img{height:26px; max-width:150px}
+      .heroLogoInner img{height:64px; max-width:92vw}
     }
   </style>
 </head>
@@ -574,43 +541,40 @@
           </div>
         </a>
 
-        <!-- LOGO MITTIG: lege Datei unter assets/img/logo/logo.png ab -->
-        <div class="centerLogo" aria-label="Logo">
-          <img src="assets/img/logo/logo.png" alt="Logo" loading="eager"
-               onerror="this.style.display='none'">
-        </div>
+        <button class="menuBtn" id="menuBtn" aria-haspopup="true" aria-expanded="false">
+          <span class="menuIcon">☰</span>
+          Menü
+        </button>
 
-        <div class="navActions">
-          <button class="menuBtn" id="menuBtn" aria-haspopup="true" aria-expanded="false">
-            <span class="menuIcon">☰</span>
-            Menü
-          </button>
-
-          <div class="dropdown" id="dropdown" role="menu" aria-label="Navigation">
-            <div class="dropGroup">
-              <p class="dropTitle">Schnell</p>
-              <a class="dropLink pillCta" href="#wahl">Wahl 17.03</a>
-              <a class="dropLink" href="#team">Team</a>
-            </div>
-
-            <div class="dropGroup">
-              <p class="dropTitle">Inhalte</p>
-              <a class="dropLink" href="#themen">Wofür wir stehen</a>
-              <a class="dropLink" href="#manifest">Unser Manifest</a>
-              <a class="dropLink" href="#transparenz">Transparenz</a>
-            </div>
-
-            <div class="dropGroup">
-              <p class="dropTitle">Rechtliches</p>
-              <a class="dropLink" href="impressum.html">Impressum</a>
-              <a class="dropLink" href="datenschutz.html">Datenschutz</a>
-            </div>
+        <div class="dropdown" id="dropdown" role="menu" aria-label="Navigation">
+          <div class="dropGroup">
+            <p class="dropTitle">Schnell</p>
+            <a class="dropLink pillCta" href="#wahl">Wahl 17.03</a>
+            <a class="dropLink" href="#team">Team</a>
+          </div>
+          <div class="dropGroup">
+            <p class="dropTitle">Inhalte</p>
+            <a class="dropLink" href="#themen">Wofür wir stehen</a>
+            <a class="dropLink" href="#manifest">Unser Manifest</a>
+            <a class="dropLink" href="#transparenz">Transparenz</a>
+          </div>
+          <div class="dropGroup">
+            <p class="dropTitle">Rechtliches</p>
+            <a class="dropLink" href="impressum.html">Impressum</a>
+            <a class="dropLink" href="datenschutz.html">Datenschutz</a>
           </div>
         </div>
-
       </div>
     </div>
   </header>
+
+  <!-- BIG LOGO (independent of header) -->
+  <div class="heroLogo">
+    <div class="heroLogoInner">
+      <!-- Lege Logo unter assets/img/logo/logo.png ab (transparent PNG) -->
+      <img src="assets/img/logo/logo.png" alt="Logo" loading="eager" onerror="this.style.display='none'">
+    </div>
+  </div>
 
   <main id="top">
 
@@ -682,7 +646,7 @@
       </div>
     </section>
 
-    <!-- WOFÜR WIR STEHEN (EINKLAPPBAR) -->
+    <!-- WOFÜR WIR STEHEN -->
     <section id="themen">
       <div class="wrap">
         <div class="splitTitle">
@@ -700,9 +664,9 @@
           </summary>
           <div class="accBody">
             <p class="muted">Klare Regeln, planbare Abläufe, weniger Überraschungen.</p>
-            <ul>
-              <li>Planbarkeit im Alltag</li>
-              <li>Transparente Abläufe</li>
+            <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted)">
+              <li style="margin:6px 0">Planbarkeit im Alltag</li>
+              <li style="margin:6px 0">Transparente Abläufe</li>
             </ul>
           </div>
         </details>
@@ -717,10 +681,6 @@
           </summary>
           <div class="accBody">
             <p class="muted">Verständlich, nachvollziehbar, gleiche Maßstäbe für alle.</p>
-            <ul>
-              <li>Nachvollziehbare Grundlagen</li>
-              <li>Fairness statt Bauchgefühl</li>
-            </ul>
           </div>
         </details>
 
@@ -734,10 +694,6 @@
           </summary>
           <div class="accBody">
             <p class="muted">Nicht erst informieren, wenn alles entschieden ist.</p>
-            <ul>
-              <li>Frühzeitig einbeziehen</li>
-              <li>Rückmeldungen ernst nehmen</li>
-            </ul>
           </div>
         </details>
 
@@ -751,10 +707,6 @@
           </summary>
           <div class="accBody">
             <p class="muted">Wir erklären Entscheidungen: warum, wie, was als nächstes.</p>
-            <ul>
-              <li>Keine Hinterzimmer Kommunikation</li>
-              <li>Status Updates mit nächstem Schritt</li>
-            </ul>
           </div>
         </details>
 
@@ -768,10 +720,6 @@
           </summary>
           <div class="accBody">
             <p class="muted">Zusammenhalt statt Spaltung. Respekt im Alltag.</p>
-            <ul>
-              <li>Team statt Lager</li>
-              <li>Respekt ist Standard</li>
-            </ul>
           </div>
         </details>
 
@@ -785,10 +733,6 @@
           </summary>
           <div class="accBody">
             <p class="muted">Arbeitsplätze sichern und Standort Aßlar stärken.</p>
-            <ul>
-              <li>Standort stärken</li>
-              <li>Zukunft im Blick</li>
-            </ul>
           </div>
         </details>
 
@@ -802,16 +746,12 @@
           </summary>
           <div class="accBody">
             <p class="muted">Tarif sichern und verständlich machen, was gilt und warum.</p>
-            <ul>
-              <li>Regeln verständlich erklären</li>
-              <li>Tarif als Schutz für alle</li>
-            </ul>
           </div>
         </details>
       </div>
     </section>
 
-    <!-- MANIFEST (EINKLAPPBAR) -->
+    <!-- MANIFEST -->
     <section id="manifest">
       <div class="wrap">
         <div class="splitTitle">
@@ -836,64 +776,38 @@
             </p>
           </div>
         </details>
-
-        <details class="acc">
-          <summary>
-            <div class="accTitle">
-              Wie wir arbeiten
-              <span>kurz · klar · verlässlich</span>
-            </div>
-            <div class="accChevron">⌄</div>
-          </summary>
-          <div class="accBody">
-            <ul>
-              <li>Wir sagen frühzeitig, was gerade läuft</li>
-              <li>Wir erklären Entscheidungen in normaler Sprache</li>
-              <li>Wir bleiben dran, bis ein Thema sauber abgeschlossen ist</li>
-              <li>Wir sind ansprechbar: Teams oder persönlich</li>
-            </ul>
-          </div>
-        </details>
       </div>
     </section>
 
-    <!-- TEAM (Filter + Halb/Mehr anzeigen + optional ausklappbar) -->
+    <!-- TEAM -->
     <section id="team">
       <div class="wrap">
         <div class="splitTitle">
           <h2>Team Liste 3</h2>
-          <p class="muted">Filter nach Listenplätzen. Fotos nach Schema 01-vorname-nachname.png</p>
+          <p class="muted">Standard: erste 12 sichtbar. Dann „Mehr anzeigen“.</p>
         </div>
 
         <details class="acc" open>
           <summary>
             <div class="accTitle">
               Team anzeigen
-              <span>filtern · schneller finden</span>
+              <span>mehr anzeigen klappt den Rest auf</span>
             </div>
             <div class="accChevron">⌄</div>
           </summary>
 
           <div class="accBody">
-            <div class="filterBar" role="tablist" aria-label="Team Filter">
-              <button class="chipBtn active" data-filter="all" type="button">Alle</button>
-              <button class="chipBtn" data-filter="1-10" type="button">1–10</button>
-              <button class="chipBtn" data-filter="11-20" type="button">11–20</button>
-              <button class="chipBtn" data-filter="21-32" type="button">21–32</button>
-            </div>
-
-            <div class="teamControls">
-              <div class="teamCount" id="teamCount">—</div>
-              <button class="btn btnGhost btnSmall" id="toggleMore" type="button">Mehr anzeigen</button>
-            </div>
-
             <div class="grid3" id="teamGrid" style="margin-top:14px"></div>
+
+            <div class="btnCenterWrap">
+              <button class="btn btnGhost" id="toggleMore" type="button">Mehr anzeigen</button>
+            </div>
           </div>
         </details>
       </div>
     </section>
 
-    <!-- TRANSPARENZ (EINKLAPPBAR) -->
+    <!-- TRANSPARENZ -->
     <section id="transparenz">
       <div class="wrap">
         <div class="splitTitle">
@@ -913,15 +827,6 @@
             <p class="muted">
               Transparenz heißt nicht: viel reden. Transparenz heißt: kurz sagen, was Sache ist.
               Deshalb bekommt ihr Updates in einem festen Format. Immer gleich. Immer verständlich.
-            </p>
-            <ul>
-              <li><b style="color:#fff">Thema</b> – worum geht es</li>
-              <li><b style="color:#fff">Stand</b> – was ist passiert oder geklärt</li>
-              <li><b style="color:#fff">Nächster Schritt</b> – was passiert als nächstes</li>
-              <li><b style="color:#fff">Ansprechpartner</b> – wer ist dran</li>
-            </ul>
-            <p class="muted" style="margin-top:10px">
-              Keine Romane. Kein Rumdrucksen. Keine Gerüchte. Sondern klare Updates, die jeder versteht.
             </p>
           </div>
         </details>
@@ -975,9 +880,8 @@
     /******************************************************************
      * SETTINGS (HÄKCHEN SETZEN)
      ******************************************************************/
-    const SHOW_TEAMS_BUTTONS = false ; // <- false/true = Teams Buttons komplett ausblenden
-    const TEAM_DEFAULT_VISIBLE_ALL = 12; // "zeige die Hälfte": wie viele Karten standardmäßig sichtbar
-    const TEAM_DEFAULT_VISIBLE_SMALL = 8; // bei Teilfiltern (1–10 etc.)
+    const SHOW_TEAMS_BUTTONS = false; // false/true = Teams Buttons komplett ausblenden
+    const TEAM_VISIBLE_DEFAULT = 12; // <- erste 12 sichtbar
 
     /******************************************************************
      * DROPDOWN
@@ -1113,28 +1017,10 @@
     }
     function fullName(first, last){ return `${first} ${last}`.trim(); }
 
-    /******************************************************************
-     * TEAM FILTER + HALF VIEW
-     ******************************************************************/
     const grid = document.getElementById('teamGrid');
-    const countEl = document.getElementById('teamCount');
     const toggleMoreBtn = document.getElementById('toggleMore');
-    const filterButtons = Array.from(document.querySelectorAll('.chipBtn'));
 
-    let currentFilter = "all";
     let showAll = false;
-
-    function getFilteredTeam(){
-      if(currentFilter === "all") return team.slice();
-
-      const [a,b] = currentFilter.split('-').map(Number);
-      return team.filter(p => p.slot >= a && p.slot <= b);
-    }
-
-    function visibleLimitForFilter(){
-      if(currentFilter === "all") return TEAM_DEFAULT_VISIBLE_ALL;
-      return TEAM_DEFAULT_VISIBLE_SMALL;
-    }
 
     function createTeamCard(person){
       const name = fullName(person.first, person.last);
@@ -1173,43 +1059,45 @@
     function renderTeam(){
       if(!grid) return;
 
-      const filtered = getFilteredTeam();
-      const limit = visibleLimitForFilter();
-      const visible = showAll ? filtered : filtered.slice(0, limit);
-
+      const visible = showAll ? team : team.slice(0, TEAM_VISIBLE_DEFAULT);
       grid.innerHTML = visible.map(createTeamCard).join("");
 
-      const total = filtered.length;
-      const shown = visible.length;
-
-      if(countEl){
-        countEl.textContent = `Angezeigt: ${shown} von ${total} (Filter: ${currentFilter === "all" ? "Alle" : currentFilter})`;
-      }
-
       if(toggleMoreBtn){
-        const needsToggle = total > limit;
+        const needsToggle = team.length > TEAM_VISIBLE_DEFAULT;
         toggleMoreBtn.style.display = needsToggle ? "inline-flex" : "none";
         toggleMoreBtn.textContent = showAll ? "Weniger anzeigen" : "Mehr anzeigen";
       }
     }
 
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        currentFilter = btn.dataset.filter || "all";
-        showAll = false; // beim Filterwechsel wieder "Hälfte"
-        renderTeam();
-      });
-    });
-
     toggleMoreBtn?.addEventListener('click', () => {
       showAll = !showAll;
       renderTeam();
+      // nach dem Aufklappen bleibt man an der Stelle
+      toggleMoreBtn.scrollIntoView({behavior:"smooth", block:"center"});
     });
 
     renderTeam();
+
+    // Dropdown behavior
+    function closeMenu(){
+      dropdown.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+    function openMenu(){
+      dropdown.classList.add('open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    document.addEventListener('click', () => closeMenu());
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+    dropdown.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if(a) closeMenu();
+      e.stopPropagation();
+    });
   </script>
 </body>
 </html>
