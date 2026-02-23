@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Liste 3 – Wir für Aßlar</title>
-  <meta name="description" content="Liste 3 – Wir für Aßlar. Wahlwerbung zur Betriebsratswahl am 17.03. Teams Kontakt + persönlich in den Abteilungen." />
+  <title>Wir für Aßlar – Liste 3</title>
+  <meta name="description" content="Wir für Aßlar – Liste 3. Wahlwerbung zur Betriebsratswahl am 17.03. Teams Kontakt + persönlich in den Abteilungen." />
 
   <style>
     :root{
@@ -35,11 +35,12 @@
         radial-gradient(700px 420px at 55% 95%, rgba(226,0,26,.18), transparent 55%),
         var(--bg);
       line-height:1.55;
-      padding-bottom:84px;
+      padding-bottom:92px;
     }
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
 
+    /* NAV */
     .nav{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(10px);
@@ -52,17 +53,34 @@
     }
     .brand{
       display:flex; align-items:center; gap:12px;
-      text-decoration:none; min-width:240px;
+      text-decoration:none; min-width:260px;
     }
     .logo{
       width:42px; height:42px; border-radius:14px;
       background: linear-gradient(135deg, var(--pfeifferRed), var(--pfeifferRed2));
       box-shadow: 0 12px 30px rgba(226,0,26,.25);
       display:grid; place-items:center;
-      font-weight:1000; letter-spacing:.3px;
+      font-weight:1000;
       color:var(--white);
       border:1px solid rgba(255,255,255,.14);
+      position:relative;
     }
+    .logo:after{
+      content:"✓";
+      position:absolute;
+      right:-6px;
+      bottom:-8px;
+      width:22px; height:22px;
+      border-radius:999px;
+      display:grid; place-items:center;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.18);
+      color: var(--white);
+      font-size:14px;
+      box-shadow: 0 12px 24px rgba(0,0,0,.35);
+    }
+
+    /* BRAND TEXT: erst Wir für Aßlar, darunter Liste 3 */
     .brand b{font-size:16px; letter-spacing:.2px; display:block}
     .brand span{display:block; font-size:12px; color:var(--muted)}
 
@@ -99,13 +117,9 @@
       font-size:18px;
     }
 
+    /* GENERAL */
     section{padding:26px 0}
-    h1{
-      margin:14px 0 10px;
-      font-size:46px;
-      line-height:1.03;
-      letter-spacing:-.9px;
-    }
+    h1{margin:14px 0 10px; font-size:46px; line-height:1.03; letter-spacing:-.9px}
     h2{margin:0; font-size:30px; letter-spacing:-.2px}
     h3{margin:0 0 8px; font-size:18px}
     p{margin:0}
@@ -134,6 +148,7 @@
     .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px}
     .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
 
+    /* HERO */
     .hero{padding:46px 0 14px}
     .heroGrid{
       display:grid;
@@ -144,7 +159,7 @@
     .heroCard{
       position:relative;
       padding:28px;
-      min-height:380px;
+      min-height:390px;
     }
     .heroCard:before{
       content:"";
@@ -154,7 +169,7 @@
         linear-gradient(90deg, rgba(226,0,26,.42), transparent 40%),
         radial-gradient(420px 180px at 80% 20%, rgba(226,0,26,.30), transparent 60%);
       pointer-events:none;
-      opacity:.8;
+      opacity:.85;
     }
     .heroCardInner{position:relative; z-index:2; display:grid; gap:12px}
     .heroLead{max-width:80ch; font-size:16px}
@@ -175,15 +190,46 @@
     }
 
     .slogan{
-      font-size:58px;
-      line-height:0.98;
-      letter-spacing:-1.2px;
+      font-size:62px;
+      line-height:0.95;
+      letter-spacing:-1.4px;
       margin:0;
     }
     .slogan span{
       color: var(--white);
       text-shadow: 0 18px 48px rgba(226,0,26,.18);
     }
+
+    /* Wahlzettel-Box */
+    .ballot{
+      margin-top:8px;
+      padding:14px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .checkBox{
+      width:54px; height:54px;
+      border-radius:16px;
+      border:2px solid rgba(255,255,255,.22);
+      background: rgba(0,0,0,.18);
+      display:grid; place-items:center;
+      position:relative;
+      box-shadow: 0 14px 34px rgba(0,0,0,.40);
+    }
+    .checkBox:after{
+      content:"✓";
+      font-size:30px;
+      font-weight:1000;
+      color: var(--white);
+      transform: rotate(-8deg);
+      text-shadow: 0 16px 30px rgba(226,0,26,.22);
+    }
+    .ballotText b{display:block; font-size:16px}
+    .ballotText span{display:block; font-size:13px; color:var(--muted)}
 
     .heroSide{display:flex; flex-direction:column; gap:12px; padding:18px}
     .taglist{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
@@ -217,7 +263,7 @@
 
     .btnrow{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
     .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      display:inline-flex; align-items:center; justify-content:center;
       text-decoration:none;
       padding:12px 14px;
       border-radius:16px;
@@ -226,7 +272,7 @@
       color:var(--text);
       font-weight:1000;
       cursor:pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, filter .12s ease;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
     .btn:hover{
       background: rgba(255,255,255,.07);
@@ -238,6 +284,7 @@
       background: linear-gradient(135deg, var(--pfeifferRed), var(--pfeifferRed2));
     }
 
+    /* Checks */
     .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px}
     .li{display:flex; gap:10px; align-items:flex-start; color:var(--muted)}
     .badge{
@@ -247,9 +294,7 @@
       background: rgba(226,0,26,.11);
       box-shadow: 0 0 0 5px rgba(226,0,26,.08);
       margin-top:1px;
-      transition: transform .12s ease;
     }
-    .box:hover .badge{transform: translateY(-1px)}
     .badge svg{display:block}
 
     .topic{position:relative; overflow:hidden}
@@ -262,10 +307,7 @@
       background: radial-gradient(circle at 30% 30%, rgba(226,0,26,.26), transparent 62%);
       pointer-events:none;
     }
-    .topicHead{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px; margin-bottom:8px;
-    }
+    .topicHead{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px}
     .chip{
       display:inline-flex; align-items:center; gap:8px;
       padding:6px 10px;
@@ -277,6 +319,7 @@
       white-space:nowrap;
     }
 
+    /* TEAM */
     .person{display:flex; gap:14px; align-items:flex-start}
     .avatar{
       width:54px; height:54px; border-radius:18px;
@@ -289,11 +332,8 @@
     }
     .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
     .slot{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 10px;
-      border-radius:999px;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px;
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.04);
       color:var(--muted);
@@ -312,6 +352,26 @@
       font-size:11px;
     }
 
+    /* TRANSPARENZ */
+    .timeline{display:grid; gap:12px; margin-top:12px}
+    .update{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .updateTop{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+    .updateDate{font-size:12px; color:var(--muted)}
+    .updateBadge{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+    }
+
+    /* FOOTER */
     .footer{
       padding:26px 0 34px;
       border-top:1px solid rgba(255,255,255,.12);
@@ -320,11 +380,10 @@
       font-size:13px;
     }
 
+    /* STICKY */
     .sticky{
       position:fixed;
-      left:12px;
-      right:12px;
-      bottom:12px;
+      left:12px; right:12px; bottom:12px;
       z-index:999;
     }
     .stickyInner{
@@ -342,11 +401,7 @@
       gap:10px;
       flex-wrap:wrap;
     }
-    .stickyText{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-    }
+    .stickyText{display:flex; flex-direction:column; gap:2px}
     .stickyText b{font-size:14px}
     .stickyText span{font-size:12px; color:var(--muted)}
     .stickyBtns{display:flex; gap:10px; flex-wrap:wrap}
@@ -358,7 +413,7 @@
       .grid3{grid-template-columns:1fr}
       .grid2{grid-template-columns:1fr}
       h1{font-size:38px}
-      .slogan{font-size:44px}
+      .slogan{font-size:46px}
       .menu{display:none}
       .burger{display:inline-grid; place-items:center}
       .menu.open{
@@ -387,8 +442,8 @@
         <a class="brand" href="#top" aria-label="Start">
           <div class="logo">3</div>
           <div>
-            <b>Liste 3</b>
-            <span>Wir für Aßlar</span>
+            <b>Wir für Aßlar</b>
+            <span>Liste 3</span>
           </div>
         </a>
 
@@ -397,8 +452,8 @@
         <nav class="menu" id="menu">
           <a href="#wahl">Wahl 17.03</a>
           <a href="#themen">Wofür wir stehen</a>
-          <a href="#manifest">Manifest</a>
-          <a class="cta" href="#team">Teams Kontakt</a>
+          <a href="#manifest">Unser Manifest</a>
+          <a class="cta" href="#team">Team</a>
           <a href="#transparenz">Transparenz</a>
         </nav>
       </div>
@@ -406,9 +461,12 @@
   </header>
 
   <main id="top">
+
+    <!-- HERO -->
     <section class="hero" id="wahl">
       <div class="wrap">
         <div class="heroGrid">
+
           <div class="card heroCard">
             <div class="heroCardInner">
               <div class="pill"><span class="dot"></span><span>Betriebsratswahl am 17.03</span></div>
@@ -416,14 +474,22 @@
               <h1 class="slogan"><span>Wir für Aßlar</span></h1>
 
               <p class="muted heroLead">
-                Hauptsache: <b>am 17.03 wählen gehen</b>.
                 Liste 3 steht für klare Worte, nachvollziehbare Entscheidungen und echte Mitnahme der Belegschaft.
+                Wichtig ist jetzt nur eins: <b>am 17.03 wählen gehen</b>.
               </p>
 
-              <!-- Buttons entfernt / ersetzt (nur Wahl Fokus) -->
+              <!-- Ankreuz Box -->
+              <div class="ballot">
+                <div class="checkBox" aria-hidden="true"></div>
+                <div class="ballotText">
+                  <b>Liste 3 ankreuzen</b>
+                  <span>Wir für Aßlar – am 17.03 zählt jede Stimme.</span>
+                </div>
+              </div>
+
               <div class="btnrow">
-                <a class="btn btnPrimary" href="#team">Liste 3 Team ansehen</a>
-                <a class="btn" href="#wahlhinweis">Warum am 17.03 wählen</a>
+                <a class="btn btnPrimary" href="#team">Team ansehen</a>
+                <a class="btn" href="#themen">Wofür wir stehen</a>
               </div>
 
               <p class="muted" style="font-size:12px; margin-top:8px">
@@ -433,7 +499,7 @@
           </div>
 
           <div class="card heroSide">
-            <div class="election" id="wahlhinweis">
+            <div class="election">
               <b>Wahltermin: 17.03</b>
               <div class="muted" style="font-size:13px; margin-top:6px">
                 Jede Stimme zählt. Bitte nimm dir die Zeit und geh wählen.
@@ -447,96 +513,136 @@
             </div>
 
             <div class="box">
-              <b style="display:block; margin-bottom:6px">Schwerpunkte</b>
-              <div class="taglist">
-                <span class="tag">Arbeitszeit</span>
-                <span class="tag">Entgelt</span>
-                <span class="tag">Mitbestimmung</span>
-                <span class="tag">Transparenz</span>
-                <span class="tag">Multikulturell</span>
-                <span class="tag">Beschäftigungssicherung</span>
-                <span class="tag">Manteltarifvertrag</span>
-              </div>
-            </div>
-
-            <div class="box">
               <b style="display:block; margin-bottom:6px">Wie erreicht ihr uns</b>
               <p class="muted" style="font-size:13px">
                 Über Teams oder persönlich. Wir sind in jeder Abteilung vertreten – kommt auf uns zu.
               </p>
             </div>
+
+            <div class="box">
+              <b style="display:block; margin-bottom:6px">Kurz gesagt</b>
+              <p class="muted" style="font-size:13px">
+                Erfahrung ist gut. Biss ist besser. Wir bringen beides zusammen.
+              </p>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- THEMEN -->
+    <!-- WOFÜR WIR STEHEN (alle Punkte als eigene Kachel) -->
     <section id="themen">
       <div class="wrap">
         <div class="splitTitle">
           <h2>Wofür wir stehen</h2>
-          <p class="muted">Unsere Punkte. Kurz und verständlich.</p>
+          <p class="muted">Alle Themen auf einen Blick.</p>
         </div>
 
         <div class="grid3">
+
           <div class="box topic">
-            <div class="topicHead"><h3>Arbeitszeit</h3><span class="chip">fair und planbar</span></div>
-            <p class="muted">Planbarkeit statt Überraschungen. Klare Regeln statt Gerüchte.</p>
+            <div class="topicHead"><h3>Arbeitszeit</h3><span class="chip">planbar</span></div>
+            <p class="muted">Klare Regeln, planbare Abläufe, weniger Überraschungen.</p>
             <ul class="list">
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Transparente Abläufe</span></li>
               <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Planbarkeit im Alltag</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Transparente Abläufe</span></li>
             </ul>
           </div>
 
           <div class="box topic">
-            <div class="topicHead"><h3>Entgelt</h3><span class="chip">klar und gerecht</span></div>
-            <p class="muted">Gute Arbeit verdient gutes Geld. Verständlich und fair.</p>
+            <div class="topicHead"><h3>Entgelt</h3><span class="chip">gerecht</span></div>
+            <p class="muted">Verständlich, nachvollziehbar, gleiche Maßstäbe für alle.</p>
             <ul class="list">
               <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Nachvollziehbare Grundlagen</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Gleiche Maßstäbe für alle</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Fairness statt Bauchgefühl</span></li>
             </ul>
           </div>
 
           <div class="box topic">
-            <div class="topicHead"><h3>Mitbestimmung</h3><span class="chip">Belegschaft mitnehmen</span></div>
+            <div class="topicHead"><h3>Mitbestimmung</h3><span class="chip">mitnehmen</span></div>
             <p class="muted">Nicht erst informieren, wenn alles entschieden ist.</p>
             <ul class="list">
               <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Frühzeitig einbeziehen</span></li>
               <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Rückmeldungen ernst nehmen</span></li>
             </ul>
           </div>
+
+          <div class="box topic">
+            <div class="topicHead"><h3>Transparenz</h3><span class="chip">klartext</span></div>
+            <p class="muted">Wir erklären Entscheidungen: warum, wie, was als nächstes.</p>
+            <ul class="list">
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Keine Hinterzimmer Kommunikation</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Status Updates mit nächstem Schritt</span></li>
+            </ul>
+          </div>
+
+          <div class="box topic">
+            <div class="topicHead"><h3>Multikulturell</h3><span class="chip">respekt</span></div>
+            <p class="muted">Zusammenhalt statt Spaltung. Respekt im Alltag.</p>
+            <ul class="list">
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Team statt Lager</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Respekt ist Standard</span></li>
+            </ul>
+          </div>
+
+          <div class="box topic">
+            <div class="topicHead"><h3>Beschäftigungssicherung</h3><span class="chip">zukunft</span></div>
+            <p class="muted">Arbeitsplätze sichern und Standort Aßlar stärken.</p>
+            <ul class="list">
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Standort stärken</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Zukunft im Blick</span></li>
+            </ul>
+          </div>
+
+          <div class="box topic">
+            <div class="topicHead"><h3>Manteltarifvertrag</h3><span class="chip">schutz</span></div>
+            <p class="muted">Tarif sichern und verständlich machen, was gilt und warum.</p>
+            <ul class="list">
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Regeln verständlich erklären</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Tarif als Schutz für alle</span></li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- MANIFEST -->
+    <!-- MANIFEST (ausgebaut) -->
     <section id="manifest">
       <div class="wrap">
         <div class="splitTitle">
           <h2>Unser Manifest</h2>
-          <p class="muted">Eure Worte. Unsere Haltung.</p>
+          <p class="muted">Haltung statt heiße Luft.</p>
         </div>
 
         <div class="card" style="padding:22px">
           <div class="grid2">
+
             <div class="box">
-              <h3>Wir glauben</h3>
-              <p class="muted" style="margin-top:8px">
-                Kompetenz bedeutet nachvollziehbare Entscheidungen.<br><br>
-                Konstruktiv heißt, die Belegschaft mitzunehmen und nicht nur zu informieren, wenn alles entschieden ist.<br><br>
-                Erfahrung ist gut. Biss ist besser.<br><br>
-                Wir bringen beides zusammen. Wir für Aßlar. Liste 3.
+              <h3>Unsere Haltung</h3>
+              <p class="muted" style="margin-top:10px">
+                <b style="color:#fff">Kompetenz</b> bedeutet nachvollziehbare Entscheidungen.<br><br>
+                <b style="color:#fff">Konstruktiv</b> heißt, die Belegschaft mitzunehmen – nicht erst informieren, wenn alles entschieden ist.<br><br>
+                <b style="color:#fff">Erfahrung</b> ist gut. <b style="color:#fff">Biss</b> ist besser.<br><br>
+                Wir bringen beides zusammen: Ruhe in der Sache, hartnäckig im Ergebnis.
               </p>
             </div>
 
             <div class="box">
-              <h3>Was das praktisch heißt</h3>
+              <h3>Wie wir arbeiten</h3>
               <ul class="list">
-                <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wir erklären Entscheidungen</span></li>
-                <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wir holen euch frühzeitig rein</span></li>
-                <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wir bleiben dran, bis es sitzt</span></li>
+                <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wir sagen frühzeitig, was gerade läuft</span></li>
+                <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wir erklären Entscheidungen in normaler Sprache</span></li>
+                <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wir bleiben dran, bis ein Thema sauber abgeschlossen ist</span></li>
+                <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wir sind ansprechbar: Teams oder persönlich</span></li>
               </ul>
+              <div class="btnrow">
+                <a class="btn btnPrimary" href="#team">Team ansehen</a>
+                <a class="btn" href="#wahl">Wahl am 17.03</a>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -547,35 +653,63 @@
       <div class="wrap">
         <div class="splitTitle">
           <h2>Team Liste 3</h2>
-          <p class="muted">Über Teams oder persönlich in den Abteilungen – kommt auf uns zu.</p>
+          <p class="muted">Teams oder persönlich – kommt auf uns zu.</p>
         </div>
 
         <div class="grid3" id="teamGrid"></div>
       </div>
     </section>
 
-    <!-- TRANSPARENZ -->
+    <!-- TRANSPARENZ (ausgebaut) -->
     <section id="transparenz">
       <div class="wrap">
         <div class="splitTitle">
           <h2>Transparenz</h2>
-          <p class="muted">Optionaler Bereich für kurze Updates.</p>
+          <p class="muted">So halten wir euch auf dem Laufenden.</p>
         </div>
 
         <div class="grid2">
           <div class="box">
-            <h3>Wie wir das hier nutzen</h3>
-            <p class="muted">
-              Wenn ihr mögt, können hier kurze Updates stehen: Thema, Stand, nächster Schritt.
+            <h3>So machen wir Updates</h3>
+            <ul class="list">
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Was ist das Thema</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wo stehen wir gerade</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Was ist der nächste Schritt</span></li>
+              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Wer ist Ansprechpartner im Team</span></li>
+            </ul>
+            <p class="muted" style="margin-top:10px">
+              Keine Romane. Kein Rumdrucksen. Kurze Updates, die jeder versteht.
             </p>
           </div>
 
           <div class="box">
-            <h3>Beispiel Update</h3>
-            <div style="margin-top:10px; padding:14px; border-radius:16px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
-              <div class="muted" style="font-size:12px">Datum: 00.00.2026</div>
-              <b style="display:block; margin-top:6px">Thema: Beispiel</b>
-              <p class="muted" style="margin-top:6px">Kurzer Status. Nächster Schritt. Fertig.</p>
+            <h3>Beispiel Updates</h3>
+            <div class="timeline">
+
+              <div class="update">
+                <div class="updateTop">
+                  <span class="updateBadge">Status Update</span>
+                  <span class="updateDate">00.00.2026</span>
+                </div>
+                <b style="display:block; margin-top:8px">Thema: Beispiel Arbeitszeit</b>
+                <p class="muted" style="margin-top:6px">
+                  Stand: Rückmeldungen aus den Abteilungen gesammelt.<br>
+                  Nächster Schritt: Klärung und Vorschlag erarbeiten.
+                </p>
+              </div>
+
+              <div class="update">
+                <div class="updateTop">
+                  <span class="updateBadge">Status Update</span>
+                  <span class="updateDate">00.00.2026</span>
+                </div>
+                <b style="display:block; margin-top:8px">Thema: Beispiel Transparenz</b>
+                <p class="muted" style="margin-top:6px">
+                  Stand: Infos zusammengetragen und verständlich aufbereitet.<br>
+                  Nächster Schritt: Veröffentlichung als kurzer Überblick.
+                </p>
+              </div>
+
             </div>
           </div>
         </div>
@@ -586,7 +720,7 @@
       <div class="wrap">
         <div class="grid2">
           <div>
-            <b style="color:var(--text)">Liste 3 – Wir für Aßlar</b>
+            <b style="color:var(--text)">Wir für Aßlar – Liste 3</b>
             <p style="margin-top:8px">
               Private Wahlwerbung zur Betriebsratswahl. Nicht im Auftrag der Unternehmensleitung.
             </p>
@@ -610,11 +744,11 @@
   <div class="sticky" role="region" aria-label="Wahlhinweis">
     <div class="stickyInner">
       <div class="stickyText">
-        <b>Am 17.03 wählen gehen – Liste 3 – Wir für Aßlar</b>
-        <span>Jede Stimme zählt. Danke.</span>
+        <b>Am 17.03 wählen gehen – Wir für Aßlar – Liste 3</b>
+        <span>Liste 3 ankreuzen. Jede Stimme zählt.</span>
       </div>
       <div class="stickyBtns">
-        <a class="btn btnPrimary btnSmall" href="#team">Zum Team</a>
+        <a class="btn btnPrimary btnSmall" href="#team">Team</a>
         <a class="btn btnSmall btnGhost" href="#top">Nach oben</a>
       </div>
     </div>
@@ -733,7 +867,6 @@
               <b style="display:block">${name}</b>
               <div class="muted" style="font-size:13px; margin-top:2px">${person.role || "Mitglied"}</div>
 
-              <!-- DOPPELZAHL ENTFERNT: nur Badge Zahl + Text -->
               <div class="slot"><i>${person.slot}</i> Listenplatz</div>
 
               <div class="actions">
