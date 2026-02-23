@@ -198,6 +198,7 @@
       text-shadow: 0 18px 48px rgba(226,0,26,.18);
     }
 
+    /* Wahlzettel-Box */
     .ballot{
       margin-top:8px;
       padding:14px;
@@ -230,26 +231,34 @@
 
     .heroSide{display:flex; flex-direction:column; gap:12px; padding:18px}
 
+    /* ELECTION BOX NOW CENTERED */
     .election{
       border:1px solid rgba(255,255,255,.14);
       background: linear-gradient(135deg, rgba(226,0,26,.26), rgba(255,255,255,.04));
       border-radius: var(--radius);
       padding:16px;
+      text-align:center;
     }
     .election b{display:block; font-size:14px}
     .countdown{
       display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
+      justify-content:center;
     }
     .cd{
-      min-width:170px;
-      padding:10px 12px;
+      min-width:220px;
+      padding:12px 12px;
       border-radius:16px;
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.04);
       text-align:center;
     }
-    .cd strong{display:block; font-size:22px}
-    .cd span{display:block; font-size:11px; color:var(--muted)}
+    .cd strong{
+      display:block;
+      font-size:34px;
+      line-height:1;
+      letter-spacing:-.5px;
+    }
+    .cd span{display:block; font-size:12px; color:var(--muted); margin-top:6px}
 
     .btnrow{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
     .btn{
@@ -274,6 +283,7 @@
       background: linear-gradient(135deg, var(--pfeifferRed), var(--pfeifferRed2));
     }
 
+    /* Checks */
     .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px}
     .li{display:flex; gap:10px; align-items:flex-start; color:var(--muted)}
     .badge{
@@ -308,6 +318,7 @@
       white-space:nowrap;
     }
 
+    /* TEAM */
     .person{display:flex; gap:14px; align-items:flex-start}
     .avatar{
       width:54px; height:54px; border-radius:18px;
@@ -340,6 +351,7 @@
       font-size:11px;
     }
 
+    /* TRANSPARENZ */
     .timeline{display:grid; gap:12px; margin-top:12px}
     .update{
       padding:14px;
@@ -358,6 +370,7 @@
       color:var(--muted);
     }
 
+    /* FOOTER */
     .footer{
       padding:26px 0 34px;
       border-top:1px solid rgba(255,255,255,.12);
@@ -366,6 +379,7 @@
       font-size:13px;
     }
 
+    /* STICKY */
     .sticky{
       position:fixed;
       left:12px; right:12px; bottom:12px;
@@ -446,6 +460,8 @@
   </header>
 
   <main id="top">
+
+    <!-- HERO -->
     <section class="hero" id="wahl">
       <div class="wrap">
         <div class="heroGrid">
@@ -481,16 +497,19 @@
           </div>
 
           <div class="card heroSide">
+            <!-- CENTERED BOX -->
             <div class="election">
               <b>Wahltermin: 17.03</b>
 
-              <!-- HIER IST DIE "23" MIT IM TEXT -->
-              <div class="muted" style="font-size:13px; margin-top:6px">
-                Noch <b style="color:#fff">23 Tage</b> – geh wählen. Liste 3 ankreuzen. Wir für Aßlar.
+              <div class="muted" style="font-size:13px; margin-top:8px">
+                Noch <b style="color:#fff" id="dDaysInline">23</b> Tage – geh wählen. Liste 3 ankreuzen. Wir für Aßlar.
               </div>
 
               <div class="countdown" aria-live="polite">
-                <div class="cd"><strong id="dDays">--</strong><span>Tage bis zur Wahl</span></div>
+                <div class="cd">
+                  <strong id="dDays">23</strong>
+                  <span>Tage bis zur Wahl</span>
+                </div>
               </div>
             </div>
 
@@ -513,6 +532,7 @@
       </div>
     </section>
 
+    <!-- WOFÜR WIR STEHEN -->
     <section id="themen">
       <div class="wrap">
         <div class="splitTitle">
@@ -598,7 +618,6 @@
 
         <div class="card" style="padding:22px">
           <div class="grid2">
-
             <div class="box">
               <h3>Unsere Haltung</h3>
               <p class="muted" style="margin-top:10px">
@@ -622,7 +641,6 @@
                 <a class="btn" href="#wahl">Wahl am 17.03</a>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -728,6 +746,7 @@
     </footer>
   </main>
 
+  <!-- STICKY BANNER -->
   <div class="sticky" role="region" aria-label="Wahlhinweis">
     <div class="stickyInner">
       <div class="stickyText">
@@ -753,15 +772,18 @@
       const diff = electionDate - now;
 
       const daysEl = document.getElementById('dDays');
+      const inlineEl = document.getElementById('dDaysInline');
       if(!daysEl) return;
 
       if(diff <= 0){
         daysEl.textContent = "0";
+        if(inlineEl) inlineEl.textContent = "0";
         return;
       }
 
       const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
       daysEl.textContent = String(days);
+      if(inlineEl) inlineEl.textContent = String(days);
     }
     updateCountdown();
     setInterval(updateCountdown, 60 * 60 * 1000);
