@@ -1,169 +1,786 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team-Umfrage 2025</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f9;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liste 3 | Wir für Aßlar</title>
+  <meta name="description" content="Wahlwerbung zur Betriebsratswahl: Liste 3 – Wir für Aßlar. Wofür wir stehen, was wir vorhaben, Transparenz und Kontakt." />
 
-        header {
-            width: 100%;
-            background: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#101a33;
+      --card2:#0f1730;
+      --text:#e9eefc;
+      --muted:#b7c3ea;
+      --line:rgba(255,255,255,.12);
+      --accent:#ff7a1a;
+      --accent2:#ffb36a;
+      --ok:#2bd576;
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+      --pad: 20px;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 420px at 20% 0%, rgba(255,122,26,.22), transparent 55%),
+        radial-gradient(1000px 520px at 90% 10%, rgba(84,124,255,.22), transparent 60%),
+        var(--bg);
+      line-height:1.55;
+    }
 
-        .form-container {
-            max-width: 600px;
-            margin: 20px;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            width: 100%;
-        }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
 
-        .form-container h2 {
-            margin-top: 0;
-            color: #333;
-        }
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.68);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none;
+      min-width:220px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(145deg, rgba(255,122,26,1), rgba(255,179,106,1));
+      box-shadow: 0 10px 25px rgba(255,122,26,.18);
+      display:grid; place-items:center;
+      font-weight:900; color:#1a0c02;
+    }
+    .brand b{font-size:16px; letter-spacing:.2px; display:block}
+    .brand span{display:block; font-size:12px; color:var(--muted)}
 
-        label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
-        }
+    .menu{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
+    .menu a{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:12px;
+      color:var(--muted);
+      border:1px solid transparent;
+      white-space:nowrap;
+    }
+    .menu a:hover{color:var(--text); border-color:var(--line); background:rgba(255,255,255,.04)}
+    .cta{
+      background: linear-gradient(135deg, rgba(255,122,26,1), rgba(255,179,106,1));
+      color:#1a0c02 !important;
+      border:0 !important;
+      font-weight:900;
+    }
+    .cta:hover{filter:brightness(.98)}
+    .burger{
+      display:none;
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-size:18px;
+    }
 
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
+    /* CARDS + GENERAL */
+    .card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(16,26,51,.92), rgba(15,23,48,.92));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .box{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    section{padding:22px 0}
+    .splitTitle{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:12px;
+    }
+    h1{
+      margin:16px 0 10px;
+      font-size:42px;
+      line-height:1.08;
+      letter-spacing:-.5px;
+    }
+    h2{margin:0; font-size:26px; letter-spacing:-.2px}
+    h3{margin:0 0 8px; font-size:18px}
+    p{margin:0}
+    .muted{color:var(--muted)}
 
-        button {
-            margin-top: 20px;
-            width: 100%;
-            padding: 15px;
-            background: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .dot{width:10px; height:10px; border-radius:999px; background:var(--accent)}
 
-        button:hover {
-            background: #218838;
-        }
+    .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px}
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
 
-        .message {
-            margin-top: 20px;
-            font-size: 1rem;
-            text-align: center;
-        }
-    </style>
+    .btnrow{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      text-decoration:none;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:900;
+      cursor:pointer;
+    }
+    .btn:hover{background: rgba(255,255,255,.06)}
+    .btnPrimary{
+      border:0;
+      background: linear-gradient(135deg, rgba(255,122,26,1), rgba(255,179,106,1));
+      color:#1a0c02;
+    }
+    .btnPrimary:hover{filter:brightness(.98)}
+
+    .taglist{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .tag{
+      font-size:12px; padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+    }
+
+    .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px}
+    .li{display:flex; gap:10px; align-items:flex-start; color:var(--muted)}
+    .check{
+      width:20px; height:20px; border-radius:7px;
+      background: rgba(43,213,118,.12);
+      border:1px solid rgba(43,213,118,.35);
+      flex:0 0 20px;
+      display:grid; place-items:center;
+      color:var(--ok);
+      font-weight:900;
+      margin-top:1px;
+    }
+
+    /* HERO */
+    .hero{padding:46px 0 18px}
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .heroCard{
+      padding:28px;
+      min-height:340px;
+      position:relative;
+      background:
+        linear-gradient(180deg, rgba(16,26,51,.88), rgba(15,23,48,.92)),
+        url('assets/hoodie.jpg') center / cover no-repeat;
+    }
+    .heroLead{max-width:70ch; margin-top:8px; font-size:16px}
+    .heroSide{display:flex; flex-direction:column; gap:12px; padding:18px}
+    .smallNote{margin-top:14px; font-size:12px; color:var(--muted)}
+
+    /* TEAM */
+    .person{display:flex; gap:14px; align-items:flex-start}
+    .avatar{
+      width:54px; height:54px; border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+      flex:0 0 54px;
+      display:grid; place-items:center;
+      color:var(--muted);
+      font-weight:900;
+    }
+    .avatar img{width:100%; height:100%; object-fit:cover; display:block}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+
+    /* UPDATES */
+    .update{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      margin-top:10px;
+    }
+    .update small{color:var(--muted)}
+    .update b{display:block; margin:6px 0 6px}
+    .update p{color:var(--muted)}
+
+    /* CONTACT */
+    form{display:grid; gap:12px}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    label{display:grid; gap:6px; color:var(--muted); font-size:13px}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(11,18,32,.55);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .hint{color:var(--muted); font-size:12px}
+
+    /* FOOTER */
+    .footer{
+      padding:26px 0 34px;
+      border-top:1px solid var(--line);
+      margin-top:24px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+      h1{font-size:34px}
+      .menu{display:none}
+      .burger{display:inline-grid; place-items:center}
+      .menu.open{
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        position:absolute;
+        left:0; right:0;
+        top:66px;
+        padding:10px 20px 18px;
+        background: rgba(11,18,32,.92);
+        border-bottom:1px solid var(--line);
+      }
+      .menu.open a{
+        border-color:var(--line);
+        background: rgba(255,255,255,.03);
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Team-Umfrage 2025</h1>
-    </header>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="Start">
+          <div class="logo">W</div>
+          <div>
+            <b>Wir für Aßlar</b>
+            <span>Liste 3 | Betriebsratswahl</span>
+          </div>
+        </a>
 
-    <div class="form-container">
-        <h2>Teile deine Ideen und Ziele</h2>
-        <form id="survey-form">
-            <label for="personalGoals">Persönliche Ziele:</label>
-            <input type="text" id="personalGoals" placeholder="Z. B.: Mehr sparen, gesund leben">
+        <button class="burger" id="burger" aria-label="Menü öffnen">☰</button>
 
-            <label for="skills">Fähigkeiten, die du entwickeln möchtest:</label>
-            <input type="text" id="skills" placeholder="Z. B.: Programmieren, Sprachen">
-
-            <label for="financialGoals">Finanzielle Ziele:</label>
-            <input type="text" id="financialGoals" placeholder="Z. B.: 10.000 Euro sparen">
-
-            <label for="teamGoals">Teamziele:</label>
-            <textarea id="teamGoals" placeholder="Gemeinsame Ziele für das Team"></textarea>
-
-            <label for="rules">Regeln/Vorsätze:</label>
-            <textarea id="rules" placeholder="Z. B.: Kein Alkohol, Pünktlichkeit"></textarea>
-
-            <label for="feedback">Feedback:</label>
-            <textarea id="feedback" placeholder="Dein Feedback oder Ideen"></textarea>
-
-            <button type="submit">Absenden</button>
-        </form>
-        <div class="message" id="message"></div>
+        <nav class="menu" id="menu">
+          <a href="#themen">Wofür wir stehen</a>
+          <a href="#ziele">Was wir vorhaben</a>
+          <a href="#team">Team</a>
+          <a href="#transparenz">Transparenz</a>
+          <a class="cta" href="#kontakt">Kontakt</a>
+        </nav>
+      </div>
     </div>
+  </header>
 
-    <script>
-        const form = document.getElementById('survey-form');
-        const message = document.getElementById('message');
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+          <div class="card heroCard">
+            <div class="pill"><span class="dot"></span><span>Liste 3 | Wir für Aßlar</span></div>
 
-        form.addEventListener('submit', async function(event) {
-            event.preventDefault();
+            <h1>Kompetenz, die man versteht.<br>Haltung, die man merkt.</h1>
 
-            const personalGoals = document.getElementById('personalGoals').value;
-            const skills = document.getElementById('skills').value;
-            const financialGoals = document.getElementById('financialGoals').value;
-            const teamGoals = document.getElementById('teamGoals').value;
-            const rules = document.getElementById('rules').value;
-            const feedback = document.getElementById('feedback').value;
+            <p class="muted heroLead">
+              Wir glauben: „Kompetenz“ bedeutet nachvollziehbare Entscheidungen.<br>
+              „Konstruktiv“ heißt, die Belegschaft mitzunehmen – nicht nur zu informieren, wenn alles entschieden ist.<br>
+              „Erfahrung“ ist gut. Biss ist besser.<br><br>
+              Wir bringen beides zusammen. Wir für Aßlar. Liste 3.
+            </p>
 
-            const data = {
-                personalGoals,
-                skills,
-                financialGoals,
-                teamGoals,
-                rules,
-                feedback
-            };
+            <div class="btnrow">
+              <a class="btn btnPrimary" href="#themen">Wofür wir stehen</a>
+              <a class="btn" href="#team">Team und Kontakt</a>
+              <a class="btn" href="#transparenz">Transparenz</a>
+            </div>
 
-            try {
-                const response = await fetch("https://api.github.com/repos/Sinan24G/Team-Umfrage-2025/contents/data.json", {
-                    method: "PUT",
-                    headers: {
-                        "Authorization": `Bearer ${atob("Z2hwX2xFRVRTalJXbjBuT0xTcGZXQ1d2a0dNajF0cDh4UDE5YlFiVw==")}`,
-                        "Content-Type": "application/json",
-                        "Accept": "application/vnd.github.v3+json"
-                    },
-                    body: JSON.stringify({
-                        message: "Update data.json",
-                        content: btoa(JSON.stringify([data], null, 2)),
-                        sha: null // Lege den `sha`-Wert fest, falls der Fehler weiterhin besteht.
-                    })
-                });
+            <p class="smallNote">
+              Hinweis: Private Wahlwerbung zur Betriebsratswahl. Nicht im Auftrag der Unternehmensleitung.
+            </p>
+          </div>
 
-                if (response.ok) {
-                    message.textContent = "Daten erfolgreich gespeichert!";
-                    message.style.color = "green";
-                    form.reset();
-                } else {
-                    throw new Error(`Fehler beim Speichern: ${response.status}`);
-                }
-            } catch (error) {
-                console.error("Fehler:", error);
-                message.textContent = "Ein Fehler ist aufgetreten. Bitte versuche es erneut.";
-                message.style.color = "red";
-            }
-        });
-    </script>
+          <div class="card heroSide">
+            <div class="box">
+              <b style="display:block; margin-bottom:6px">Kern Themen</b>
+              <p class="muted" style="font-size:13px">
+                Klar, fair, planbar – mit nachvollziehbaren Entscheidungen.
+              </p>
+              <div class="taglist">
+                <span class="tag">Arbeitszeit</span>
+                <span class="tag">Entgelt</span>
+                <span class="tag">Mitbestimmung</span>
+                <span class="tag">Transparenz für alle</span>
+                <span class="tag">Beschäftigungssicherung</span>
+                <span class="tag">Multikulturell</span>
+              </div>
+            </div>
+
+            <div class="box">
+              <b style="display:block; margin-bottom:6px">Direkt erreichbar</b>
+              <p class="muted" style="font-size:13px">
+                Schreib uns per Formular oder direkt per Teams Chat.
+              </p>
+              <div class="btnrow">
+                <a class="btn btnPrimary" href="#kontakt">Nachricht senden</a>
+                <a class="btn" href="https://teams.microsoft.com/" target="_blank" rel="noopener">Teams öffnen</a>
+              </div>
+            </div>
+
+            <div class="box">
+              <b style="display:block; margin-bottom:6px">Unser Stil</b>
+              <p class="muted" style="font-size:13px">
+                Offen. Direkt. Ehrlich. Konstruktiv – ohne Hinterzimmer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THEMEN -->
+    <section id="themen">
+      <div class="wrap">
+        <div class="splitTitle">
+          <h2>Wofür wir stehen</h2>
+          <p class="muted">Klare Positionen. Verständlich erklärt.</p>
+        </div>
+
+        <div class="grid3">
+          <div class="box">
+            <h3>Arbeitszeit</h3>
+            <p class="muted">Fair, planbar, nachvollziehbar – damit dein Alltag funktioniert.</p>
+            <ul class="list">
+              <li class="li"><span class="check">✓</span><span>Planbarkeit statt Überraschungen</span></li>
+              <li class="li"><span class="check">✓</span><span>Klare Regeln statt Gerüchte</span></li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <h3>Entgelt</h3>
+            <p class="muted">Gute Arbeit verdient gutes Geld – transparent und gerecht.</p>
+            <ul class="list">
+              <li class="li"><span class="check">✓</span><span>Nachvollziehbare Grundlagen</span></li>
+              <li class="li"><span class="check">✓</span><span>Gleiche Maßstäbe für alle</span></li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <h3>Mitbestimmung</h3>
+            <p class="muted">Die Belegschaft wird mitgenommen – nicht erst am Ende informiert.</p>
+            <ul class="list">
+              <li class="li"><span class="check">✓</span><span>Frühzeitig einbeziehen</span></li>
+              <li class="li"><span class="check">✓</span><span>Echte Rückmeldungen aufnehmen</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="grid3">
+          <div class="box">
+            <h3>Transparenz für alle</h3>
+            <p class="muted">Offen, direkt, ehrlich – keine Nebel Antworten.</p>
+            <ul class="list">
+              <li class="li"><span class="check">✓</span><span>Status Updates zu Themen</span></li>
+              <li class="li"><span class="check">✓</span><span>Entscheidungen erklären</span></li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <h3>Beschäftigungssicherung</h3>
+            <p class="muted">Starker Standort Aßlar heißt sichere Jobs und Zukunft.</p>
+            <ul class="list">
+              <li class="li"><span class="check">✓</span><span>Standort stärken</span></li>
+              <li class="li"><span class="check">✓</span><span>Langfristig denken</span></li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <h3>Multikulturell</h3>
+            <p class="muted">Vielfalt ist Stärke – Respekt im Alltag und Zusammenhalt.</p>
+            <ul class="list">
+              <li class="li"><span class="check">✓</span><span>Respekt statt Lager</span></li>
+              <li class="li"><span class="check">✓</span><span>Team statt Spaltung</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZIELE -->
+    <section id="ziele">
+      <div class="wrap">
+        <div class="splitTitle">
+          <h2>Was wir vorhaben</h2>
+          <p class="muted">Konkrete Umsetzung statt Floskeln.</p>
+        </div>
+
+        <div class="grid2">
+          <div class="box">
+            <h3>Unsere Prioritäten</h3>
+            <ul class="list">
+              <li class="li"><span class="check">✓</span><span><b>Kommunikation:</b> klare Ansprechwege, schnelle Rückmeldungen</span></li>
+              <li class="li"><span class="check">✓</span><span><b>Planbarkeit:</b> verständliche Abläufe und Regeln</span></li>
+              <li class="li"><span class="check">✓</span><span><b>Transparenz:</b> Updates, damit jeder weiß wo es steht</span></li>
+              <li class="li"><span class="check">✓</span><span><b>Alltagsthemen:</b> Dinge lösen, die täglich nerven</span></li>
+            </ul>
+            <p class="hint" style="margin-top:10px">
+              Du kannst hier später eure echten Punkte ergänzen oder ersetzen.
+            </p>
+          </div>
+
+          <div class="box">
+            <h3>So setzen wir es um</h3>
+            <ul class="list">
+              <li class="li"><span class="check">✓</span><span>Regelmäßige Sprechzeiten und kurze Wege</span></li>
+              <li class="li"><span class="check">✓</span><span>Priorisierung nach Dringlichkeit und Wirkung</span></li>
+              <li class="li"><span class="check">✓</span><span>Dokumentation: Anliegen, Status, Ergebnis</span></li>
+              <li class="li"><span class="check">✓</span><span>Verständliche Zusammenfassungen für alle</span></li>
+            </ul>
+            <div class="btnrow">
+              <a class="btn btnPrimary" href="#kontakt">Anliegen senden</a>
+              <a class="btn" href="#transparenz">Updates ansehen</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="card" style="padding:22px">
+          <div class="grid2">
+            <div>
+              <div class="pill"><span class="dot"></span><span>Schluss mit Stillstand</span></div>
+              <h2 style="margin-top:12px">Jetzt ist die Zeit für Veränderung</h2>
+              <p class="muted" style="margin-top:8px; max-width:70ch">
+                Wenn du willst, dass Entscheidungen nachvollziehbar sind und man die Belegschaft mitnimmt,
+                dann ist Liste 3 die klare Wahl.
+              </p>
+              <div class="btnrow">
+                <a class="btn btnPrimary" href="#kontakt">Kontakt</a>
+                <a class="btn" href="#team">Team</a>
+              </div>
+            </div>
+
+            <div class="box">
+              <b style="display:block; margin-bottom:6px">Merksatz</b>
+              <p class="muted">
+                Erfahrung ist gut. Biss ist besser.<br>
+                Wir bringen beides zusammen.
+              </p>
+              <ul class="list">
+                <li class="li"><span class="check">✓</span><span>Offen statt hintenrum</span></li>
+                <li class="li"><span class="check">✓</span><span>Klar statt kompliziert</span></li>
+                <li class="li"><span class="check">✓</span><span>Ergebnis statt Ausreden</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+      <div class="wrap">
+        <div class="splitTitle">
+          <h2>Team Liste 3</h2>
+          <p class="muted">Direkt erreichbar per Teams Chat oder Nachricht</p>
+        </div>
+
+        <div class="grid3">
+          <div class="box">
+            <div class="person">
+              <div class="avatar">S</div>
+              <div>
+                <b style="display:block">Stefan Häbich</b>
+                <div class="muted" style="font-size:13px; margin-top:2px">Listenvertreter</div>
+                <div class="actions">
+                  <!-- TODO: Teams-Mail einsetzen -->
+                  <a class="btn" target="_blank" rel="noopener"
+                     href="https://teams.microsoft.com/l/chat/0/0?users=stefan.haebich@firma.de">Teams Chat</a>
+                  <a class="btn btnPrimary" href="#kontakt" onclick="prefillPerson('Stefan Häbich')">Nachricht</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dupliziere diesen Block für weitere Personen -->
+          <div class="box">
+            <div class="person">
+              <div class="avatar">A</div>
+              <div>
+                <b style="display:block">Name Nachname</b>
+                <div class="muted" style="font-size:13px; margin-top:2px">Bereich oder Funktion</div>
+                <div class="actions">
+                  <a class="btn" target="_blank" rel="noopener"
+                     href="https://teams.microsoft.com/l/chat/0/0?users=name.nachname@firma.de">Teams Chat</a>
+                  <a class="btn btnPrimary" href="#kontakt" onclick="prefillPerson('Name Nachname')">Nachricht</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="person">
+              <div class="avatar">B</div>
+              <div>
+                <b style="display:block">Name Nachname</b>
+                <div class="muted" style="font-size:13px; margin-top:2px">Bereich oder Funktion</div>
+                <div class="actions">
+                  <a class="btn" target="_blank" rel="noopener"
+                     href="https://teams.microsoft.com/l/chat/0/0?users=name.nachname@firma.de">Teams Chat</a>
+                  <a class="btn btnPrimary" href="#kontakt" onclick="prefillPerson('Name Nachname')">Nachricht</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="hint" style="margin-top:12px">
+          Tipp: Wenn du mir alle Namen + Teams Mails gibst, mache ich dir das Team Raster komplett fertig ohne Platzhalter.
+        </p>
+      </div>
+    </section>
+
+    <!-- TRANSPARENZ -->
+    <section id="transparenz">
+      <div class="wrap">
+        <div class="splitTitle">
+          <h2>Transparenz</h2>
+          <p class="muted">Updates, Positionen, Antworten</p>
+        </div>
+
+        <div class="grid2">
+          <div class="box">
+            <h3>Aktuelle Updates</h3>
+
+            <div class="update">
+              <small>Datum: 00.00.2026</small>
+              <b>Thema: Beispiel Update</b>
+              <p>Kurze Erklärung: was ist los, was ist eure Position, was passiert als Nächstes.</p>
+            </div>
+
+            <div class="update">
+              <small>Datum: 00.00.2026</small>
+              <b>Thema: Beispiel Update</b>
+              <p>Antworten ohne Nebel. Verständlich für alle.</p>
+            </div>
+
+            <p class="hint" style="margin-top:10px">
+              Das ist euer Bereich, um nachvollziehbar zu zeigen, woran ihr dran seid.
+            </p>
+          </div>
+
+          <div class="box">
+            <h3>Fragen und Antworten</h3>
+            <ul class="list">
+              <li class="li"><span class="check">✓</span><span><b>Frage:</b> Wie erreiche ich euch am schnellsten</span></li>
+              <li class="li"><span class="check">✓</span><span><b>Antwort:</b> Teams Chat im Team Bereich oder unten das Formular.</span></li>
+              <li class="li"><span class="check">✓</span><span><b>Frage:</b> Geht das auch anonym</span></li>
+              <li class="li"><span class="check">✓</span><span><b>Antwort:</b> Ja, Name ist optional. Bitte keine sensiblen Daten schicken.</span></li>
+              <li class="li"><span class="check">✓</span><span><b>Frage:</b> Wie bleibt das transparent</span></li>
+              <li class="li"><span class="check">✓</span><span><b>Antwort:</b> Wir posten Updates: Anliegen, Status, Ergebnis.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt">
+      <div class="wrap">
+        <div class="splitTitle">
+          <h2>Kontakt</h2>
+          <p class="muted">Schnell, direkt, auf Wunsch anonym</p>
+        </div>
+
+        <div class="grid2">
+          <div class="box">
+            <h3>Nachricht senden</h3>
+
+            <!-- OPTION 1: Google Forms (empfohlen) -->
+            <p class="muted">
+              Empfohlen: Nutzt ein Formular, damit nichts verloren geht.
+            </p>
+            <div class="btnrow">
+              <!-- TODO: Formular-Link ersetzen -->
+              <a class="btn btnPrimary" href="https://forms.google.com/" target="_blank" rel="noopener">
+                Anliegen senden (Formular)
+              </a>
+              <a class="btn" href="https://teams.microsoft.com/" target="_blank" rel="noopener">Teams öffnen</a>
+            </div>
+
+            <div style="height:10px"></div>
+            <p class="hint">
+              Wenn du keinen Formular Link nutzt, kannst du unten die Mail Variante aktivieren.
+            </p>
+
+            <hr style="border:0; border-top:1px solid rgba(255,255,255,.10); margin:14px 0">
+
+            <!-- OPTION 2: Mail vorbereiten (funktioniert nur, wenn Mail-Programm eingerichtet ist) -->
+            <form onsubmit="return handleSubmit(event)">
+              <div class="row">
+                <label>
+                  Name optional
+                  <input type="text" name="name" placeholder="Optional" />
+                </label>
+                <label>
+                  Ansprechpartner optional
+                  <select name="person" id="personSelect">
+                    <option value="">Frei wählen</option>
+                    <option>Stefan Häbich</option>
+                    <option>Name Nachname</option>
+                    <option>Name Nachname</option>
+                  </select>
+                </label>
+              </div>
+
+              <label>
+                Thema
+                <input required type="text" name="subject" placeholder="Zum Beispiel Arbeitszeit, Entgelt, Planung" />
+              </label>
+
+              <label>
+                Nachricht
+                <textarea required name="message" placeholder="Schreibe kurz, worum es geht und was du dir wünschst"></textarea>
+              </label>
+
+              <div class="btnrow">
+                <button class="btn btnPrimary" type="submit">E Mail vorbereiten</button>
+              </div>
+
+              <p class="hint" id="formHint"></p>
+            </form>
+
+          </div>
+
+          <div class="box">
+            <h3>Direkt per Teams</h3>
+            <p class="muted">
+              Wenn du lieber direkt schreibst, nutze die Teams Chats im Team Bereich.
+            </p>
+            <ul class="list">
+              <li class="li"><span class="check">✓</span><span>Direkte Person auswählen</span></li>
+              <li class="li"><span class="check">✓</span><span>Schnelle Wege statt Umwege</span></li>
+              <li class="li"><span class="check">✓</span><span>Auf Wunsch anonym</span></li>
+            </ul>
+
+            <div class="box" style="margin-top:14px">
+              <b style="display:block; margin-bottom:6px">Sprechzeiten (optional)</b>
+              <p class="muted" style="font-size:13px">
+                Tragt hier eure Zeiten oder Treffpunkte ein. Beispiel: Jeden Mittwoch 12:00 bis 12:30 am Schwarzen Brett.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="wrap">
+        <div class="grid2">
+          <div>
+            <b style="color:var(--text)">Liste 3 | Wir für Aßlar</b>
+            <p style="margin-top:8px">
+              Private Wahlwerbung zur Betriebsratswahl. Nicht im Auftrag der Unternehmensleitung.
+            </p>
+            <p style="margin-top:10px">
+              <a href="#top" class="muted">Nach oben</a>
+            </p>
+          </div>
+          <div>
+            <b style="color:var(--text)">Datenschutz Hinweis</b>
+            <p style="margin-top:8px">
+              Bitte keine sensiblen Daten senden. Nutze nur Infos, die für den Kontakt notwendig sind.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Mobile Menü
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    burger?.addEventListener('click', () => menu.classList.toggle('open'));
+
+    // Vorauswahl Ansprechpartner
+    function prefillPerson(name){
+      const sel = document.getElementById('personSelect');
+      if(sel) sel.value = name;
+    }
+    window.prefillPerson = prefillPerson;
+
+    // Mailto Formular (Fallback)
+    function handleSubmit(e){
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      const name = (data.get('name') || '').toString().trim();
+      const person = (data.get('person') || '').toString().trim();
+      const subject = (data.get('subject') || '').toString().trim();
+      const message = (data.get('message') || '').toString().trim();
+
+      // TODO: Zieladresse ersetzen
+      const to = "liste3@firma.de";
+
+      const lines = [];
+      if(name) lines.push("Name: " + name);
+      if(person) lines.push("Ansprechpartner: " + person);
+      lines.push("");
+      lines.push(message);
+
+      const mailSubject = encodeURIComponent("Liste 3 Kontakt: " + subject);
+      const mailBody = encodeURIComponent(lines.join("\n"));
+      const mailto = "mailto:" + encodeURIComponent(to) + "?subject=" + mailSubject + "&body=" + mailBody;
+
+      const hint = document.getElementById('formHint');
+      if(hint){
+        hint.textContent = "E Mail wird vorbereitet. Wenn nichts passiert, ist evtl. kein Mail Programm eingerichtet.";
+      }
+
+      window.location.href = mailto;
+      return false;
+    }
+    window.handleSubmit = handleSubmit;
+  </script>
 </body>
 </html>
