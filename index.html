@@ -90,29 +90,6 @@
     .brand b{font-size:16px; letter-spacing:.2px; display:block}
     .brand span{display:block; font-size:12px; color:var(--muted)}
 
-    /* Big floating logo (independent) */
-    .heroLogo{
-      position:relative;
-      margin: 14px auto 0;
-      max-width: var(--max);
-      padding: 0 var(--pad);
-      z-index: 10;
-      pointer-events:none;
-    }
-    .heroLogoInner{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
-    .heroLogoInner img{
-      height: 92px;               /* BIG */
-      max-width: min(540px, 92vw);
-      object-fit:contain;
-      display:block;
-      filter: drop-shadow(0 22px 40px rgba(0,0,0,.55));
-      opacity: .98;
-    }
-
     /* Dropdown */
     .menuBtn{
       display:inline-flex; align-items:center; gap:10px;
@@ -185,6 +162,26 @@
       border:1px solid rgba(255,255,255,.12);
     }
 
+    /* "Word-Style" Logo over text, centered, no overlap */
+    .headerLogo{
+      padding: 16px 0 0;
+    }
+    .headerLogo .wrap{
+      display:flex;
+      justify-content:center;
+    }
+    .headerLogo img{
+      height: 110px;                         /* groß */
+      max-width: min(680px, 94vw);
+      object-fit:contain;
+      display:block;
+      filter: drop-shadow(0 22px 40px rgba(0,0,0,.55));
+    }
+    .logoSpacer{
+      height: 12px; /* sorgt für Luft, damit nichts "klebt" */
+    }
+
+    /* GENERAL */
     section{padding:26px 0}
     h1{margin:14px 0 10px; font-size:46px; line-height:1.03; letter-spacing:-.9px}
     h2{margin:0; font-size:30px; letter-spacing:-.2px}
@@ -212,11 +209,11 @@
       background: rgba(255,255,255,.04);
       min-width:0;
     }
-    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
     .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px}
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
 
     /* HERO */
-    .hero{padding:22px 0 14px} /* reduced top because logo is separate */
+    .hero{padding:28px 0 14px}
     .heroGrid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -357,10 +354,83 @@
       background: linear-gradient(135deg, var(--pfeifferRed), var(--pfeifferRed2));
     }
     .btnGhost{background: rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.16)}
-    .btnCenterWrap{
+    .btnCenterWrap{display:flex; justify-content:center; margin-top:14px}
+
+    /* Accordion (Details) */
+    details.acc{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      border-radius:18px;
+      overflow:hidden;
+    }
+    details.acc + details.acc{margin-top:12px}
+    details.acc summary{
+      list-style:none;
+      cursor:pointer;
+      padding:14px 16px;
       display:flex;
-      justify-content:center;
-      margin-top:14px;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      font-weight:1000;
+    }
+    details.acc summary::-webkit-details-marker{display:none}
+    .accTitle{display:flex; flex-direction:column; gap:2px; min-width:0}
+    .accTitle span{color:var(--muted); font-weight:700; font-size:12px}
+    .accChevron{
+      width:34px; height:34px;
+      border-radius:14px;
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      flex:0 0 34px;
+      transition: transform .15s ease;
+    }
+    details[open].acc .accChevron{transform: rotate(180deg)}
+    .accBody{padding:0 16px 16px}
+    .accBody p{margin-top:8px}
+    .accBody ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .accBody li{margin:6px 0}
+
+    /* Stefan Box */
+    .leadBox{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    .leadPhoto{
+      width:140px;
+      height:140px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+      box-shadow: 0 18px 45px rgba(0,0,0,.35);
+      display:grid;
+      place-items:center;
+      font-weight:1000;
+      color:rgba(255,255,255,.86);
+    }
+    .leadPhoto img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .leadHeadline{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+      margin-bottom:6px;
+    }
+    .leadHeadline b{font-size:18px}
+    .badgeRole{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:900;
     }
 
     /* Team */
@@ -404,39 +474,6 @@
       font-weight:1000;
       font-size:11px;
     }
-
-    /* Accordion */
-    details.acc{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      border-radius:18px;
-      overflow:hidden;
-    }
-    details.acc + details.acc{margin-top:12px}
-    details.acc summary{
-      list-style:none;
-      cursor:pointer;
-      padding:14px 16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      font-weight:1000;
-    }
-    details.acc summary::-webkit-details-marker{display:none}
-    .accTitle{display:flex; flex-direction:column; gap:2px; min-width:0}
-    .accTitle span{color:var(--muted); font-weight:700; font-size:12px}
-    .accChevron{
-      width:34px; height:34px;
-      border-radius:14px;
-      display:grid; place-items:center;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      flex:0 0 34px;
-      transition: transform .15s ease;
-    }
-    details[open].acc .accChevron{transform: rotate(180deg)}
-    .accBody{padding:0 16px 16px}
 
     /* Footer */
     .footer{
@@ -498,14 +535,16 @@
       .slogan{font-size:46px}
       .heroCard{min-height:auto}
       .dropdown{top:66px}
-      .heroLogoInner img{height:78px; max-width:min(480px, 94vw)}
+      .leadBox{grid-template-columns: 110px 1fr}
+      .leadPhoto{width:110px;height:110px;border-radius:20px}
+      .headerLogo img{height:92px; max-width:min(560px, 94vw)}
     }
     @media (max-width: 560px){
       :root{ --pad:16px; }
       section{padding:22px 0}
       h2{font-size:26px}
       h3{font-size:17px}
-      .hero{padding:18px 0 10px}
+      .hero{padding:22px 0 10px}
       .heroCard{padding:18px}
       .heroSide{padding:14px}
       .slogan{font-size:40px}
@@ -524,12 +563,16 @@
       .stickyBtns{width:100%}
       .stickyBtns .btn{flex:1 1 100%}
 
-      .heroLogoInner img{height:64px; max-width:92vw}
+      .leadBox{grid-template-columns: 1fr}
+      .leadPhoto{width:100%; height:220px}
+
+      .headerLogo img{height:74px; max-width:94vw}
     }
   </style>
 </head>
 
 <body>
+  <!-- NAV -->
   <header class="nav">
     <div class="wrap">
       <div class="navInner">
@@ -552,29 +595,34 @@
             <a class="dropLink pillCta" href="#wahl">Wahl 17.03</a>
             <a class="dropLink" href="#team">Team</a>
           </div>
+
           <div class="dropGroup">
             <p class="dropTitle">Inhalte</p>
+            <a class="dropLink" href="#vorstellung">Listenvertreter</a>
             <a class="dropLink" href="#themen">Wofür wir stehen</a>
             <a class="dropLink" href="#manifest">Unser Manifest</a>
             <a class="dropLink" href="#transparenz">Transparenz</a>
           </div>
+
           <div class="dropGroup">
             <p class="dropTitle">Rechtliches</p>
             <a class="dropLink" href="impressum.html">Impressum</a>
             <a class="dropLink" href="datenschutz.html">Datenschutz</a>
           </div>
         </div>
+
       </div>
     </div>
   </header>
 
-  <!-- BIG LOGO (independent of header) -->
-  <div class="heroLogo">
-    <div class="heroLogoInner">
-      <!-- Lege Logo unter assets/img/logo/logo.png ab (transparent PNG) -->
+  <!-- BIG LOGO (Word-Style) -->
+  <div class="headerLogo" aria-label="Logo">
+    <div class="wrap">
+      <!-- transparent PNG hier ablegen: assets/img/logo/logo.png -->
       <img src="assets/img/logo/logo.png" alt="Logo" loading="eager" onerror="this.style.display='none'">
     </div>
   </div>
+  <div class="logoSpacer"></div>
 
   <main id="top">
 
@@ -630,7 +678,7 @@
             <div class="box">
               <b style="display:block; margin-bottom:6px">Wie erreicht ihr uns</b>
               <p class="muted" style="font-size:13px">
-                Über Teams oder persönlich. Wir sind in jeder Abteilung vertreten. Kommt auf uns zu.
+                Über Teams oder persönlich. Wir sind in jeder Abteilung vertreten – kommt auf uns zu.
               </p>
             </div>
 
@@ -642,6 +690,80 @@
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTENVERTRETER -->
+    <section id="vorstellung">
+      <div class="wrap">
+        <div class="splitTitle">
+          <h2>Listenvertreter</h2>
+          <p class="muted">Persönlich. Klar. Ansprechbar.</p>
+        </div>
+
+        <div class="card" style="padding:22px">
+          <div class="box">
+            <div class="leadBox">
+              <div class="leadPhoto" aria-label="Stefan Häbich">
+                <img src="assets/img/team/01-stefan-haebich.png" alt="Stefan Häbich" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.textContent='SH';">
+              </div>
+
+              <div style="min-width:0">
+                <div class="leadHeadline">
+                  <b>Stefan Häbich</b>
+                  <span class="badgeRole">Listenvertreter · Liste 3</span>
+                </div>
+
+                <p class="muted">
+                  Liebe Kolleginnen und Kollegen,<br><br>
+                  mein Name ist Stefan Häbich, und ich kandidiere für den Betriebsrat.<br><br>
+                  Warum? Weil mir unsere Arbeit, unsere Qualität und unser Zusammenhalt wirklich am Herzen liegen.<br><br>
+                  Seit vielen Jahren arbeite ich bei Pfeiffer Vacuum und habe dabei eines immer deutlich gespürt:
+                  Wir schaffen nur dann Großes, wenn wir uns gegenseitig unterstützen – in der Produktion, im Service,
+                  in der Verwaltung und auf allen Ebenen.
+                </p>
+
+                <p class="muted" style="margin-top:12px"><b style="color:#fff">Wofür ich stehe</b></p>
+                <ul>
+                  <li><b style="color:#fff">Loyalität gegenüber Kolleginnen und Kollegen</b><br>
+                    Jeder von uns verdient Respekt, Ehrlichkeit und Unterstützung – unabhängig von Abteilung oder Position.</li>
+                  <li><b style="color:#fff">Verantwortung für die Qualität unserer Arbeit</b><br>
+                    Qualität ist unser Gesicht nach außen. Ich spreche Probleme offen an – ohne Schuldzuweisungen, aber mit Lösungen im Blick.</li>
+                  <li><b style="color:#fff">Offenheit und Transparenz</b><br>
+                    Ich möchte sichtbar sein, ansprechbar sein und klar kommunizieren, damit ihr immer wisst, wo ich stehe und was ich für euch tue.</li>
+                  <li><b style="color:#fff">Vermitteln statt spalten</b><br>
+                    Ich sehe mich als Brücke zwischen Mitarbeitenden und Führung. Sachen ruhig, sachlich und respektvoll klären – das ist mein Weg.</li>
+                  <li><b style="color:#fff">Verlässlichkeit und Integrität</b><br>
+                    Ich übernehme Verantwortung für das, was ich selbst beeinflussen kann, und stehe zu meinem Wort.</li>
+                </ul>
+
+                <p class="muted" style="margin-top:12px"><b style="color:#fff">Warum ich kandidiere</b></p>
+                <p class="muted">
+                  Weil ich überzeugt bin, dass echte Veränderungen nur entstehen, wenn man sich aktiv einbringt.
+                  Ich möchte dafür sorgen, dass
+                  unsere Anliegen ernst genommen werden, Probleme nicht unter den Tisch fallen, gute Ideen gehört werden
+                  und wir als Team stark bleiben.
+                </p>
+
+                <p class="muted" style="margin-top:12px">
+                  Ich will sichtbar für euch arbeiten – durch klare Kommunikation, durch Zuhören und durch echtes Engagement.
+                </p>
+
+                <p class="muted" style="margin-top:12px">
+                  Ich bin für euch da. Mit Herz, mit Verstand und mit dem Willen, gemeinsam Lösungen zu finden.<br><br>
+                  Ich würde mich freuen, wenn ihr mir euer Vertrauen schenkt.<br><br>
+                  <b style="color:#fff">Euer Stefan</b>
+                </p>
+              </div>
+            </div>
+
+            <div class="btnrow" style="margin-top:14px">
+              <a class="btn btnPrimary" href="#team">Team Liste 3 ansehen</a>
+              <a class="btn" href="#themen">Wofür wir stehen</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -664,9 +786,9 @@
           </summary>
           <div class="accBody">
             <p class="muted">Klare Regeln, planbare Abläufe, weniger Überraschungen.</p>
-            <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted)">
-              <li style="margin:6px 0">Planbarkeit im Alltag</li>
-              <li style="margin:6px 0">Transparente Abläufe</li>
+            <ul>
+              <li>Planbarkeit im Alltag</li>
+              <li>Transparente Abläufe</li>
             </ul>
           </div>
         </details>
@@ -681,6 +803,10 @@
           </summary>
           <div class="accBody">
             <p class="muted">Verständlich, nachvollziehbar, gleiche Maßstäbe für alle.</p>
+            <ul>
+              <li>Nachvollziehbare Grundlagen</li>
+              <li>Fairness statt Bauchgefühl</li>
+            </ul>
           </div>
         </details>
 
@@ -694,6 +820,10 @@
           </summary>
           <div class="accBody">
             <p class="muted">Nicht erst informieren, wenn alles entschieden ist.</p>
+            <ul>
+              <li>Frühzeitig einbeziehen</li>
+              <li>Rückmeldungen ernst nehmen</li>
+            </ul>
           </div>
         </details>
 
@@ -707,6 +837,10 @@
           </summary>
           <div class="accBody">
             <p class="muted">Wir erklären Entscheidungen: warum, wie, was als nächstes.</p>
+            <ul>
+              <li>Keine Hinterzimmer Kommunikation</li>
+              <li>Status Updates mit nächstem Schritt</li>
+            </ul>
           </div>
         </details>
 
@@ -720,6 +854,10 @@
           </summary>
           <div class="accBody">
             <p class="muted">Zusammenhalt statt Spaltung. Respekt im Alltag.</p>
+            <ul>
+              <li>Team statt Lager</li>
+              <li>Respekt ist Standard</li>
+            </ul>
           </div>
         </details>
 
@@ -733,6 +871,10 @@
           </summary>
           <div class="accBody">
             <p class="muted">Arbeitsplätze sichern und Standort Aßlar stärken.</p>
+            <ul>
+              <li>Standort stärken</li>
+              <li>Zukunft im Blick</li>
+            </ul>
           </div>
         </details>
 
@@ -746,6 +888,10 @@
           </summary>
           <div class="accBody">
             <p class="muted">Tarif sichern und verständlich machen, was gilt und warum.</p>
+            <ul>
+              <li>Regeln verständlich erklären</li>
+              <li>Tarif als Schutz für alle</li>
+            </ul>
           </div>
         </details>
       </div>
@@ -774,6 +920,24 @@
               <b style="color:#fff">Erfahrung</b> ist gut. <b style="color:#fff">Biss</b> ist besser.<br><br>
               Wir bringen beides zusammen: ruhig in der Sache, hartnäckig im Ergebnis.
             </p>
+          </div>
+        </details>
+
+        <details class="acc">
+          <summary>
+            <div class="accTitle">
+              Wie wir arbeiten
+              <span>kurz · klar · verlässlich</span>
+            </div>
+            <div class="accChevron">⌄</div>
+          </summary>
+          <div class="accBody">
+            <ul>
+              <li>Wir sagen frühzeitig, was gerade läuft</li>
+              <li>Wir erklären Entscheidungen in normaler Sprache</li>
+              <li>Wir bleiben dran, bis ein Thema sauber abgeschlossen ist</li>
+              <li>Wir sind ansprechbar: Teams oder persönlich</li>
+            </ul>
           </div>
         </details>
       </div>
@@ -815,21 +979,59 @@
           <p class="muted">So halten wir euch auf dem Laufenden.</p>
         </div>
 
-        <details class="acc" open>
-          <summary>
-            <div class="accTitle">
-              So machen wir Updates
-              <span>festes format · verständlich</span>
-            </div>
-            <div class="accChevron">⌄</div>
-          </summary>
-          <div class="accBody">
-            <p class="muted">
+        <div class="grid2">
+          <div class="box">
+            <h3>So halten wir euch wirklich auf dem Laufenden</h3>
+
+            <p class="muted" style="margin-top:10px">
               Transparenz heißt nicht: viel reden. Transparenz heißt: kurz sagen, was Sache ist.
-              Deshalb bekommt ihr Updates in einem festen Format. Immer gleich. Immer verständlich.
+              Deshalb bekommt ihr Updates in einem festen Format – immer gleich, immer verständlich.
             </p>
+
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li style="margin:6px 0"><b style="color:#fff">Thema</b> – worum geht’s</li>
+              <li style="margin:6px 0"><b style="color:#fff">Stand</b> – was ist passiert / was ist geklärt</li>
+              <li style="margin:6px 0"><b style="color:#fff">Nächster Schritt</b> – was passiert als nächstes</li>
+              <li style="margin:6px 0"><b style="color:#fff">Ansprechpartner</b> – wer ist dran</li>
+            </ul>
+
+            <div style="margin-top:12px; padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
+              <b style="display:block">Unser Stil</b>
+              <p class="muted" style="margin-top:6px">
+                Keine Romane. Kein Rumdrucksen. Keine Gerüchte. Sondern klare Updates, die jeder versteht.
+              </p>
+            </div>
           </div>
-        </details>
+
+          <div class="box">
+            <h3>Beispiel Updates</h3>
+
+            <div style="margin-top:12px; padding:14px; border-radius:16px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
+              <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center">
+                <span style="font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); color:var(--muted)">Status Update</span>
+                <span style="font-size:12px; color:var(--muted)">00.00.2026</span>
+              </div>
+              <b style="display:block; margin-top:8px">Thema: Beispiel Arbeitszeit</b>
+              <p class="muted" style="margin-top:6px">
+                Stand: Rückmeldungen aus den Abteilungen gesammelt.<br>
+                Nächster Schritt: Klärung und Vorschlag erarbeiten.
+              </p>
+            </div>
+
+            <div style="margin-top:12px; padding:14px; border-radius:16px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
+              <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center">
+                <span style="font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); color:var(--muted)">Status Update</span>
+                <span style="font-size:12px; color:var(--muted)">00.00.2026</span>
+              </div>
+              <b style="display:block; margin-top:8px">Thema: Beispiel Transparenz</b>
+              <p class="muted" style="margin-top:6px">
+                Stand: Infos zusammengetragen und verständlich aufbereitet.<br>
+                Nächster Schritt: Veröffentlichung als kurzer Überblick.
+              </p>
+            </div>
+
+          </div>
+        </div>
       </div>
     </section>
 
@@ -880,11 +1082,11 @@
     /******************************************************************
      * SETTINGS (HÄKCHEN SETZEN)
      ******************************************************************/
-    const SHOW_TEAMS_BUTTONS = false; // false/true = Teams Buttons komplett ausblenden
-    const TEAM_VISIBLE_DEFAULT = 12; // <- erste 12 sichtbar
+    const SHOW_TEAMS_BUTTONS = true;   // <- auf false = Teams Buttons komplett aus
+    const TEAM_VISIBLE_DEFAULT = 12;   // <- erste 12 sichtbar
 
     /******************************************************************
-     * DROPDOWN
+     * DROPDOWN – FUNKTIONIERT
      ******************************************************************/
     const menuBtn = document.getElementById('menuBtn');
     const dropdown = document.getElementById('dropdown');
@@ -897,12 +1099,15 @@
       dropdown.classList.add('open');
       menuBtn.setAttribute('aria-expanded', 'true');
     }
+
     menuBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       dropdown.classList.contains('open') ? closeMenu() : openMenu();
     });
+
     document.addEventListener('click', () => closeMenu());
     document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+
     dropdown.addEventListener('click', (e) => {
       const a = e.target.closest('a');
       if(a) closeMenu();
@@ -910,12 +1115,13 @@
     });
 
     /******************************************************************
-     * COUNTDOWN (NUR TAGE)
+     * COUNTDOWN – NUR TAGE
      ******************************************************************/
-    const electionDate = new Date(2026, 2, 17, 8, 0, 0);
+    const electionDate = new Date(2026, 2, 17, 8, 0, 0); // 17.03.2026
     function updateCountdown(){
       const now = new Date();
       const diff = electionDate - now;
+
       const daysEl = document.getElementById('dDays');
       const inlineEl = document.getElementById('dDaysInline');
       if(!daysEl || !inlineEl) return;
@@ -925,6 +1131,7 @@
         inlineEl.textContent = "0";
         return;
       }
+
       const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
       daysEl.textContent = String(days);
       inlineEl.textContent = String(days);
@@ -933,7 +1140,7 @@
     setInterval(updateCountdown, 60 * 60 * 1000);
 
     /******************************************************************
-     * TEAM DATA
+     * TEAM
      ******************************************************************/
     const PHOTO_BASE = "assets/img/team/";
 
@@ -1019,7 +1226,6 @@
 
     const grid = document.getElementById('teamGrid');
     const toggleMoreBtn = document.getElementById('toggleMore');
-
     let showAll = false;
 
     function createTeamCard(person){
@@ -1072,32 +1278,10 @@
     toggleMoreBtn?.addEventListener('click', () => {
       showAll = !showAll;
       renderTeam();
-      // nach dem Aufklappen bleibt man an der Stelle
       toggleMoreBtn.scrollIntoView({behavior:"smooth", block:"center"});
     });
 
     renderTeam();
-
-    // Dropdown behavior
-    function closeMenu(){
-      dropdown.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    }
-    function openMenu(){
-      dropdown.classList.add('open');
-      menuBtn.setAttribute('aria-expanded', 'true');
-    }
-    menuBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      dropdown.classList.contains('open') ? closeMenu() : openMenu();
-    });
-    document.addEventListener('click', () => closeMenu());
-    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
-    dropdown.addEventListener('click', (e) => {
-      const a = e.target.closest('a');
-      if(a) closeMenu();
-      e.stopPropagation();
-    });
   </script>
 </body>
 </html>
