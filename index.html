@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Liste 3 Wir für Aßlar</title>
-  <meta name="description" content="Liste 3 Wir für Aßlar. Wahlwerbung zur Betriebsratswahl. Wofür wir stehen und Teams Kontakt." />
+  <title>Liste 3 – Wir für Aßlar</title>
+  <meta name="description" content="Liste 3 – Wir für Aßlar. Wahlwerbung zur Betriebsratswahl am 17.03. Teams Kontakt + persönlich in den Abteilungen." />
 
   <style>
     :root{
@@ -14,7 +14,6 @@
 
       --bg:#07070b;
       --line:rgba(255,255,255,.12);
-
       --text:#ffffff;
       --muted:rgba(255,255,255,.72);
 
@@ -104,10 +103,10 @@
     /* GENERAL */
     section{padding:26px 0}
     h1{
-      margin:16px 0 10px;
+      margin:14px 0 10px;
       font-size:46px;
-      line-height:1.05;
-      letter-spacing:-.8px;
+      line-height:1.03;
+      letter-spacing:-.9px;
     }
     h2{margin:0; font-size:30px; letter-spacing:-.2px}
     h3{margin:0 0 8px; font-size:18px}
@@ -141,27 +140,27 @@
     .hero{padding:46px 0 14px}
     .heroGrid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.15fr .85fr;
       gap:18px;
       align-items:stretch;
     }
     .heroCard{
       position:relative;
       padding:28px;
-      min-height:360px;
+      min-height:380px;
     }
     .heroCard:before{
       content:"";
       position:absolute;
       inset:-2px;
       background:
-        linear-gradient(90deg, rgba(226,0,26,.38), transparent 35%),
+        linear-gradient(90deg, rgba(226,0,26,.42), transparent 40%),
         radial-gradient(420px 180px at 80% 20%, rgba(226,0,26,.30), transparent 60%);
       pointer-events:none;
-      opacity:.78;
+      opacity:.8;
     }
     .heroCardInner{position:relative; z-index:2; display:grid; gap:12px}
-    .heroLead{max-width:78ch; font-size:16px}
+    .heroLead{max-width:80ch; font-size:16px}
 
     .pill{
       display:inline-flex; align-items:center; gap:10px;
@@ -178,6 +177,17 @@
       box-shadow: 0 0 0 4px rgba(226,0,26,.16);
     }
 
+    .slogan{
+      font-size:58px;
+      line-height:0.98;
+      letter-spacing:-1.2px;
+      margin:0;
+    }
+    .slogan span{
+      color: var(--white);
+      text-shadow: 0 18px 48px rgba(226,0,26,.18);
+    }
+
     .heroSide{display:flex; flex-direction:column; gap:12px; padding:18px}
     .taglist{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
     .tag{
@@ -186,6 +196,28 @@
       background: rgba(255,255,255,.04);
       color:var(--muted);
     }
+
+    /* Election Callout */
+    .election{
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(226,0,26,.26), rgba(255,255,255,.04));
+      border-radius: var(--radius);
+      padding:16px;
+    }
+    .election b{display:block; font-size:14px}
+    .countdown{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
+    }
+    .cd{
+      min-width:90px;
+      padding:10px 12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      text-align:center;
+    }
+    .cd strong{display:block; font-size:18px}
+    .cd span{display:block; font-size:11px; color:var(--muted)}
 
     /* BUTTONS */
     .btnrow{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
@@ -210,7 +242,6 @@
       border:1px solid rgba(255,255,255,.14);
       background: linear-gradient(135deg, var(--pfeifferRed), var(--pfeifferRed2));
     }
-    .btnPrimary:hover{filter:brightness(.98)}
 
     /* UPGRADDED CHECKS */
     .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px}
@@ -222,7 +253,7 @@
       background: rgba(226,0,26,.11);
       box-shadow: 0 0 0 5px rgba(226,0,26,.08);
       margin-top:1px;
-      transition: transform .12s ease, filter .12s ease;
+      transition: transform .12s ease;
     }
     .box:hover .badge{transform: translateY(-1px)}
     .badge svg{display:block}
@@ -259,13 +290,35 @@
       width:54px; height:54px; border-radius:18px;
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.04);
-      overflow:hidden;
       flex:0 0 54px;
       display:grid; place-items:center;
       color:rgba(255,255,255,.86);
       font-weight:1000;
     }
     .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .slot{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:12px;
+      margin-top:8px;
+      width:max-content;
+    }
+    .slot i{
+      display:inline-grid; place-items:center;
+      width:18px; height:18px; border-radius:999px;
+      background: rgba(226,0,26,.20);
+      border:1px solid rgba(226,0,26,.40);
+      color:var(--white);
+      font-style:normal;
+      font-weight:1000;
+      font-size:11px;
+    }
 
     /* FOOTER */
     .footer{
@@ -282,6 +335,7 @@
       .grid3{grid-template-columns:1fr}
       .grid2{grid-template-columns:1fr}
       h1{font-size:38px}
+      .slogan{font-size:44px}
       .menu{display:none}
       .burger{display:inline-grid; place-items:center}
       .menu.open{
@@ -310,14 +364,15 @@
         <a class="brand" href="#top" aria-label="Start">
           <div class="logo">3</div>
           <div>
-            <b>Wir für Aßlar</b>
-            <span>Liste 3 Betriebsratswahl</span>
+            <b>Liste 3</b>
+            <span>Wir für Aßlar</span>
           </div>
         </a>
 
         <button class="burger" id="burger" aria-label="Menü öffnen">☰</button>
 
         <nav class="menu" id="menu">
+          <a href="#wahl">Wahl 17.03</a>
           <a href="#themen">Wofür wir stehen</a>
           <a href="#manifest">Manifest</a>
           <a class="cta" href="#team">Teams Kontakt</a>
@@ -328,24 +383,24 @@
   </header>
 
   <main id="top">
-    <section class="hero">
+    <!-- HERO -->
+    <section class="hero" id="wahl">
       <div class="wrap">
         <div class="heroGrid">
           <div class="card heroCard">
             <div class="heroCardInner">
-              <div class="pill"><span class="dot"></span><span>Liste 3 Wir für Aßlar</span></div>
+              <div class="pill"><span class="dot"></span><span>Betriebsratswahl am 17.03</span></div>
 
-              <h1>Schluss mit Stillstand.<br>Jetzt wird klar gesprochen.</h1>
+              <h1 class="slogan"><span>Wir für Aßlar</span></h1>
 
               <p class="muted heroLead">
-                Kompetenz heißt nachvollziehbare Entscheidungen.
-                Konstruktiv heißt die Belegschaft mitzunehmen.
-                Erfahrung ist gut. Biss ist besser.
+                Liste 3 steht für klare Worte, nachvollziehbare Entscheidungen und echte Mitnahme der Belegschaft.
+                Hauptsache: <b>am 17.03 wählen gehen</b>.
               </p>
 
               <div class="btnrow">
-                <a class="btn btnPrimary" href="#themen">Wofür wir stehen</a>
-                <a class="btn" href="#team">Teams Kontakt</a>
+                <a class="btn btnPrimary" href="#team">Jetzt Teams Chat starten</a>
+                <a class="btn" href="#themen">Wofür wir stehen</a>
                 <a class="btn" href="#manifest">Unser Manifest</a>
               </div>
 
@@ -356,8 +411,21 @@
           </div>
 
           <div class="card heroSide">
+            <div class="election">
+              <b>Wahltermin: 17.03</b>
+              <div class="muted" style="font-size:13px; margin-top:6px">
+                Jede Stimme zählt. Bitte nimm dir die Zeit und geh wählen.
+              </div>
+
+              <div class="countdown" aria-live="polite">
+                <div class="cd"><strong id="dDays">--</strong><span>Tage</span></div>
+                <div class="cd"><strong id="dHours">--</strong><span>Stunden</span></div>
+                <div class="cd"><strong id="dMins">--</strong><span>Minuten</span></div>
+              </div>
+            </div>
+
             <div class="box">
-              <b style="display:block; margin-bottom:6px">Unsere Schwerpunkte</b>
+              <b style="display:block; margin-bottom:6px">Schwerpunkte</b>
               <p class="muted" style="font-size:13px">
                 Klar, fair, transparent. Für alle am Standort.
               </p>
@@ -373,9 +441,9 @@
             </div>
 
             <div class="box">
-              <b style="display:block; margin-bottom:6px">Kontakt nur über Teams</b>
+              <b style="display:block; margin-bottom:6px">Wie erreicht ihr uns</b>
               <p class="muted" style="font-size:13px">
-                Direkt zu einer Person, ohne Umwege.
+                Über Teams oder persönlich. Wir sind in jeder Abteilung vertreten – kommt auf uns zu.
               </p>
               <div class="btnrow">
                 <a class="btn btnPrimary" href="#team">Zum Team</a>
@@ -383,18 +451,12 @@
               </div>
             </div>
 
-            <div class="box">
-              <b style="display:block; margin-bottom:6px">Liste 3</b>
-              <p class="muted" style="font-size:13px">
-                Wir bringen Erfahrung und Biss zusammen.
-              </p>
-            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WOFÜR WIR STEHEN -->
+    <!-- THEMEN -->
     <section id="themen">
       <div class="wrap">
         <div class="splitTitle">
@@ -467,7 +529,7 @@
         <div class="grid2">
           <div class="box topic">
             <div class="topicHead"><h3>Manteltarifvertrag</h3><span class="chip">Tarif sichern</span></div>
-            <p class="muted">Tarifliche Standards schützen und sauber kommunizieren, was gilt und warum.</p>
+            <p class="muted">Tarifliche Standards schützen und verständlich machen, was gilt und warum.</p>
             <ul class="list">
               <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Regeln verständlich machen</span></li>
               <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Tarif als Schutz für alle</span></li>
@@ -475,18 +537,13 @@
           </div>
 
           <div class="card" style="padding:22px">
-            <div class="pill"><span class="dot"></span><span>Wie erreicht ihr uns am besten</span></div>
-            <h2 style="margin-top:12px">Direkt. Ohne Umwege.</h2>
+            <div class="pill"><span class="dot"></span><span>Wahl am 17.03</span></div>
+            <h2 style="margin-top:12px">Bitte wählen gehen.</h2>
             <p class="muted" style="margin-top:8px; max-width:80ch">
-              Am schnellsten erreicht ihr uns über Teams im Team Bereich.
-              Alternativ könnt ihr uns auch vor Ort persönlich ansprechen, wenn ihr uns im Betrieb seht.
+              Genau jetzt zählt jede Stimme. Wenn du Veränderung willst, dann nutz deine Stimme am 17.03.
             </p>
-            <ul class="list" style="margin-top:12px">
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Über Teams</b> Teams Chat starten und direkt schreiben</span></li>
-              <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Vor Ort persönlich</b> Sprich uns direkt im Betrieb an</span></li>
-            </ul>
             <div class="btnrow">
-              <a class="btn btnPrimary" href="#team">Zum Team</a>
+              <a class="btn btnPrimary" href="#team">Team ansehen und Teams Chat</a>
               <a class="btn" href="https://teams.microsoft.com/" target="_blank" rel="noopener">Teams öffnen</a>
             </div>
           </div>
@@ -524,7 +581,7 @@
 
               <div class="btnrow">
                 <a class="btn btnPrimary" href="#team">Teams Kontakt</a>
-                <a class="btn" href="#themen">Zurück zu den Themen</a>
+                <a class="btn" href="#wahl">Zurück zur Wahl Info</a>
               </div>
             </div>
           </div>
@@ -537,7 +594,7 @@
       <div class="wrap">
         <div class="splitTitle">
           <h2>Teams Kontakt Liste 3</h2>
-          <p class="muted">Alle Mitglieder. Ein Klick zum Chat.</p>
+          <p class="muted">Über Teams oder persönlich in den Abteilungen – kommt auf uns zu.</p>
         </div>
 
         <div class="grid3" id="teamGrid"></div>
@@ -547,7 +604,7 @@
           <p class="muted">Wenn Teams noch nicht offen ist, starte es hier.</p>
           <div class="btnrow">
             <a class="btn btnPrimary" href="https://teams.microsoft.com/" target="_blank" rel="noopener">Teams öffnen</a>
-            <a class="btn" href="#themen">Wofür wir stehen</a>
+            <a class="btn" href="#wahl">Wahl am 17.03</a>
           </div>
         </div>
       </div>
@@ -565,8 +622,7 @@
           <div class="box">
             <h3>Wie wir das hier nutzen</h3>
             <p class="muted">
-              Wenn ihr mögt, können hier regelmäßig kurze Updates stehen:
-              Was ist Thema, was ist unser Stand, was passiert als Nächstes.
+              Wenn ihr mögt, können hier kurze Updates stehen: Thema, Stand, nächster Schritt.
             </p>
             <ul class="list">
               <li class="li"><span class="badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>1 Update pro Woche reicht</span></li>
@@ -581,9 +637,6 @@
               <b style="display:block; margin-top:6px">Thema: Beispiel</b>
               <p class="muted" style="margin-top:6px">Kurzer Status. Nächster Schritt. Fertig.</p>
             </div>
-            <p class="muted" style="margin-top:10px; font-size:12px">
-              Wenn ihr das nicht nutzen wollt, könnt ihr diese Sektion weglassen.
-            </p>
           </div>
         </div>
       </div>
@@ -593,7 +646,7 @@
       <div class="wrap">
         <div class="grid2">
           <div>
-            <b style="color:var(--text)">Liste 3 Wir für Aßlar</b>
+            <b style="color:var(--text)">Liste 3 – Wir für Aßlar</b>
             <p style="margin-top:8px">
               Private Wahlwerbung zur Betriebsratswahl. Nicht im Auftrag der Unternehmensleitung.
             </p>
@@ -601,7 +654,12 @@
           </div>
           <div>
             <b style="color:var(--text)">Kontakt</b>
-            <p style="margin-top:8px">Ausschließlich über Teams im Team Bereich.</p>
+            <p style="margin-top:8px">
+              Über Teams oder persönlich in den Abteilungen – kommt auf uns zu.
+            </p>
+            <p class="muted" style="margin-top:10px">
+              Wichtig: <b>Am 17.03 wählen gehen</b>.
+            </p>
           </div>
         </div>
       </div>
@@ -614,40 +672,71 @@
     const menu = document.getElementById('menu');
     burger?.addEventListener('click', () => menu.classList.toggle('open'));
 
-    // Team Liste 3 (aus eurer Liste)
+    // Countdown zur Wahl (17.03.2026 08:00 lokale Zeit)
+    const electionDate = new Date(2026, 2, 17, 8, 0, 0); // Monat 2 = März
+    function updateCountdown(){
+      const now = new Date();
+      const diff = electionDate - now;
+
+      const daysEl = document.getElementById('dDays');
+      const hoursEl = document.getElementById('dHours');
+      const minsEl = document.getElementById('dMins');
+
+      if(!daysEl || !hoursEl || !minsEl) return;
+
+      if(diff <= 0){
+        daysEl.textContent = "0";
+        hoursEl.textContent = "0";
+        minsEl.textContent = "0";
+        return;
+      }
+
+      const totalMins = Math.floor(diff / 60000);
+      const days = Math.floor(totalMins / (60*24));
+      const hours = Math.floor((totalMins - days*60*24) / 60);
+      const mins = totalMins - days*60*24 - hours*60;
+
+      daysEl.textContent = String(days);
+      hoursEl.textContent = String(hours);
+      minsEl.textContent = String(mins);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 30000);
+
+    // Team Liste 3 mit Listenplatz
     const team = [
-      { first: "Stefan", last: "Haebich", role: "Listenvertreter" },
-      { first: "Angelo", last: "Floris", role: "Mitglied" },
-      { first: "Maik-Daniel", last: "Rueb", role: "Mitglied" },
-      { first: "Maik", last: "Schaefer", role: "Mitglied" },
-      { first: "Devran", last: "Bozkurt", role: "Mitglied" },
-      { first: "Nils", last: "Jung", role: "Mitglied" },
-      { first: "Dominic", last: "Wall", role: "Mitglied" },
-      { first: "Anna-Lena", last: "Wagner", role: "Mitglied" },
-      { first: "Jannik", last: "Stender-Robertz", role: "Mitglied" },
-      { first: "Jaqueline", last: "Moeglich", role: "Mitglied" },
-      { first: "Sinan-Leon", last: "Fuchs", role: "Mitglied" },
-      { first: "Paul", last: "Zerbe", role: "Mitglied" },
-      { first: "Marianna", last: "Aratyan", role: "Mitglied" },
-      { first: "Kenan", last: "Koemuercue", role: "Mitglied" },
-      { first: "Thomas", last: "Cromm", role: "Mitglied" },
-      { first: "Bilal", last: "Oeztuerk", role: "Mitglied" },
-      { first: "Daniel", last: "Kuchenbecker", role: "Mitglied" },
-      { first: "Florian", last: "Bestajovsky", role: "Mitglied" },
-      { first: "Frank", last: "Heinrich", role: "Mitglied" },
-      { first: "Kai", last: "Thielemann", role: "Mitglied" },
-      { first: "Bartholomaeus", last: "Dyba", role: "Mitglied" },
-      { first: "Sebastian", last: "Latta", role: "Mitglied" },
-      { first: "Swen", last: "Barthel", role: "Mitglied" },
-      { first: "Alexander", last: "Dill", role: "Mitglied" },
-      { first: "Daniel", last: "Reiter", role: "Mitglied" },
-      { first: "Peter", last: "Pollok", role: "Mitglied" },
-      { first: "Alexander", last: "Malejko", role: "Mitglied" },
-      { first: "Elena", last: "Emmellius", role: "Mitglied" },
-      { first: "Goran", last: "Tonkovic", role: "Mitglied" },
-      { first: "Cueneyt", last: "Guenes", role: "Mitglied" },
-      { first: "Andreas", last: "Wenner", role: "Mitglied" },
-      { first: "Daniel", last: "Sinsig", role: "Mitglied" },
+      { slot: 1, first: "Stefan", last: "Haebich", role: "Listenvertreter" },
+      { slot: 2, first: "Angelo", last: "Floris", role: "Mitglied" },
+      { slot: 3, first: "Maik-Daniel", last: "Rueb", role: "Mitglied" },
+      { slot: 4, first: "Maik", last: "Schaefer", role: "Mitglied" },
+      { slot: 5, first: "Devran", last: "Bozkurt", role: "Mitglied" },
+      { slot: 6, first: "Nils", last: "Jung", role: "Mitglied" },
+      { slot: 7, first: "Dominic", last: "Wall", role: "Mitglied" },
+      { slot: 8, first: "Anna-Lena", last: "Wagner", role: "Mitglied" },
+      { slot: 9, first: "Jannik", last: "Stender-Robertz", role: "Mitglied" },
+      { slot: 10, first: "Jaqueline", last: "Moeglich", role: "Mitglied" },
+      { slot: 11, first: "Sinan-Leon", last: "Fuchs", role: "Mitglied" },
+      { slot: 12, first: "Paul", last: "Zerbe", role: "Mitglied" },
+      { slot: 13, first: "Marianna", last: "Aratyan", role: "Mitglied" },
+      { slot: 14, first: "Kenan", last: "Koemuercue", role: "Mitglied" },
+      { slot: 15, first: "Thomas", last: "Cromm", role: "Mitglied" },
+      { slot: 16, first: "Bilal", last: "Oeztuerk", role: "Mitglied" },
+      { slot: 17, first: "Daniel", last: "Kuchenbecker", role: "Mitglied" },
+      { slot: 18, first: "Florian", last: "Bestajovsky", role: "Mitglied" },
+      { slot: 19, first: "Frank", last: "Heinrich", role: "Mitglied" },
+      { slot: 20, first: "Kai", last: "Thielemann", role: "Mitglied" },
+      { slot: 21, first: "Bartholomaeus", last: "Dyba", role: "Mitglied" },
+      { slot: 22, first: "Sebastian", last: "Latta", role: "Mitglied" },
+      { slot: 23, first: "Swen", last: "Barthel", role: "Mitglied" },
+      { slot: 24, first: "Alexander", last: "Dill", role: "Mitglied" },
+      { slot: 25, first: "Daniel", last: "Reiter", role: "Mitglied" },
+      { slot: 26, first: "Peter", last: "Pollok", role: "Mitglied" },
+      { slot: 27, first: "Alexander", last: "Malejko", role: "Mitglied" },
+      { slot: 28, first: "Elena", last: "Emmellius", role: "Mitglied" },
+      { slot: 29, first: "Goran", last: "Tonkovic", role: "Mitglied" },
+      { slot: 30, first: "Cueneyt", last: "Guenes", role: "Mitglied" },
+      { slot: 31, first: "Andreas", last: "Wenner", role: "Mitglied" },
+      { slot: 32, first: "Daniel", last: "Sinsig", role: "Mitglied" },
     ];
 
     function cleanPart(s){
@@ -691,10 +780,14 @@
             <div>
               <b style="display:block">${name}</b>
               <div class="muted" style="font-size:13px; margin-top:2px">${person.role || "Mitglied"}</div>
+
+              <div class="slot"><i>${person.slot}</i> Listenplatz ${person.slot}</div>
+
               <div class="actions">
                 <a class="btn btnPrimary" target="_blank" rel="noopener" href="${teamsLink}">Teams Chat starten</a>
                 <a class="btn" target="_blank" rel="noopener" href="https://teams.microsoft.com/">Teams öffnen</a>
               </div>
+
               <div class="muted" style="font-size:12px; margin-top:10px">${email}</div>
             </div>
           </div>
@@ -707,7 +800,6 @@
       if(!grid) return;
       grid.innerHTML = team.map(createTeamCard).join("");
     }
-
     renderTeam();
   </script>
 </body>
