@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wir für Aßlar – Liste 3</title>
-  <meta name="description" content="Wir für Aßlar – Liste 3. Wahlwerbung zur Betriebsratswahl am 17.03. Kontakt über Teams oder persönlich." />
+  <meta name="description" content="Wir für Aßlar – Liste 3. Wahlwerbung zur Betriebsratswahl am 17.03. Kontakt persönlich in den Abteilungen." />
 
   <style>
     :root{
@@ -162,23 +162,35 @@
       border:1px solid rgba(255,255,255,.12);
     }
 
-    /* "Word-Style" Logo over text, centered, no overlap */
-    .headerLogo{
-      padding: 16px 0 0;
+    /* BIG CENTER LOGO (overlapping header line) */
+    .navCenterLogo{
+      position:absolute;
+      left:50%;
+      bottom:-70px;                 /* overlap amount */
+      transform:translateX(-50%);
+      z-index:120;
+      pointer-events:none;
     }
-    .headerLogo .wrap{
-      display:flex;
-      justify-content:center;
-    }
-    .headerLogo img{
-      height: 110px;                         /* groß */
-      max-width: min(680px, 94vw);
+    .navCenterLogo img{
+      height:300px;                 /* ~3x */
+      max-width:min(780px, 92vw);
       object-fit:contain;
       display:block;
-      filter: drop-shadow(0 22px 40px rgba(0,0,0,.55));
+      filter: drop-shadow(0 26px 48px rgba(0,0,0,.60));
+      opacity:.98;
     }
-    .logoSpacer{
-      height: 12px; /* sorgt für Luft, damit nichts "klebt" */
+    .logoOverlapSpacer{
+      height:155px;                 /* reserve space so no text is covered */
+    }
+    @media (max-width: 980px){
+      .navCenterLogo{ bottom:-58px; }
+      .navCenterLogo img{ height:220px; }
+      .logoOverlapSpacer{ height:120px; }
+    }
+    @media (max-width: 560px){
+      .navCenterLogo{ bottom:-48px; }
+      .navCenterLogo img{ height:170px; }
+      .logoOverlapSpacer{ height:95px; }
     }
 
     /* GENERAL */
@@ -293,7 +305,7 @@
       font-weight:1000;
       color: var(--white);
       transform: rotate(-8deg);
-      text-shadow: 0 16px 30px rgba(226,0,26,.22);
+      text-shadow: 0 16px 30px rgba(226,0,26,.22));
     }
     .ballotText b{display:block; font-size:16px}
     .ballotText span{display:block; font-size:13px; color:var(--muted)}
@@ -356,7 +368,7 @@
     .btnGhost{background: rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.16)}
     .btnCenterWrap{display:flex; justify-content:center; margin-top:14px}
 
-    /* Accordion (Details) */
+    /* Accordion */
     details.acc{
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
@@ -388,11 +400,8 @@
     }
     details[open].acc .accChevron{transform: rotate(180deg)}
     .accBody{padding:0 16px 16px}
-    .accBody p{margin-top:8px}
-    .accBody ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
-    .accBody li{margin:6px 0}
 
-    /* Stefan Box */
+    /* Stefan */
     .leadBox{
       display:grid;
       grid-template-columns: 140px 1fr;
@@ -537,7 +546,6 @@
       .dropdown{top:66px}
       .leadBox{grid-template-columns: 110px 1fr}
       .leadPhoto{width:110px;height:110px;border-radius:20px}
-      .headerLogo img{height:92px; max-width:min(560px, 94vw)}
     }
     @media (max-width: 560px){
       :root{ --pad:16px; }
@@ -565,8 +573,6 @@
 
       .leadBox{grid-template-columns: 1fr}
       .leadPhoto{width:100%; height:220px}
-
-      .headerLogo img{height:74px; max-width:94vw}
     }
   </style>
 </head>
@@ -611,18 +617,17 @@
           </div>
         </div>
 
+        <!-- Big centered logo overlapping the header line -->
+        <div class="navCenterLogo" aria-label="Logo">
+          <img src="assets/img/logo/logo.png" alt="Logo" loading="eager" onerror="this.style.display='none'">
+        </div>
+
       </div>
     </div>
   </header>
 
-  <!-- BIG LOGO (Word-Style) -->
-  <div class="headerLogo" aria-label="Logo">
-    <div class="wrap">
-      <!-- transparent PNG hier ablegen: assets/img/logo/logo.png -->
-      <img src="assets/img/logo/logo.png" alt="Logo" loading="eager" onerror="this.style.display='none'">
-    </div>
-  </div>
-  <div class="logoSpacer"></div>
+  <!-- Spacer so logo does not overlap content -->
+  <div class="logoOverlapSpacer" aria-hidden="true"></div>
 
   <main id="top">
 
@@ -678,7 +683,7 @@
             <div class="box">
               <b style="display:block; margin-bottom:6px">Wie erreicht ihr uns</b>
               <p class="muted" style="font-size:13px">
-                Über Teams oder persönlich. Wir sind in jeder Abteilung vertreten – kommt auf uns zu.
+                Aktuell ausschließlich persönlich. Wir sind in jeder Abteilung vertreten. Kommt auf uns zu.
               </p>
             </div>
 
@@ -786,9 +791,9 @@
           </summary>
           <div class="accBody">
             <p class="muted">Klare Regeln, planbare Abläufe, weniger Überraschungen.</p>
-            <ul>
-              <li>Planbarkeit im Alltag</li>
-              <li>Transparente Abläufe</li>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li style="margin:6px 0">Planbarkeit im Alltag</li>
+              <li style="margin:6px 0">Transparente Abläufe</li>
             </ul>
           </div>
         </details>
@@ -803,9 +808,9 @@
           </summary>
           <div class="accBody">
             <p class="muted">Verständlich, nachvollziehbar, gleiche Maßstäbe für alle.</p>
-            <ul>
-              <li>Nachvollziehbare Grundlagen</li>
-              <li>Fairness statt Bauchgefühl</li>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li style="margin:6px 0">Nachvollziehbare Grundlagen</li>
+              <li style="margin:6px 0">Fairness statt Bauchgefühl</li>
             </ul>
           </div>
         </details>
@@ -820,9 +825,9 @@
           </summary>
           <div class="accBody">
             <p class="muted">Nicht erst informieren, wenn alles entschieden ist.</p>
-            <ul>
-              <li>Frühzeitig einbeziehen</li>
-              <li>Rückmeldungen ernst nehmen</li>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li style="margin:6px 0">Frühzeitig einbeziehen</li>
+              <li style="margin:6px 0">Rückmeldungen ernst nehmen</li>
             </ul>
           </div>
         </details>
@@ -837,9 +842,9 @@
           </summary>
           <div class="accBody">
             <p class="muted">Wir erklären Entscheidungen: warum, wie, was als nächstes.</p>
-            <ul>
-              <li>Keine Hinterzimmer Kommunikation</li>
-              <li>Status Updates mit nächstem Schritt</li>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li style="margin:6px 0">Keine Hinterzimmer Kommunikation</li>
+              <li style="margin:6px 0">Status Updates mit nächstem Schritt</li>
             </ul>
           </div>
         </details>
@@ -854,9 +859,9 @@
           </summary>
           <div class="accBody">
             <p class="muted">Zusammenhalt statt Spaltung. Respekt im Alltag.</p>
-            <ul>
-              <li>Team statt Lager</li>
-              <li>Respekt ist Standard</li>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li style="margin:6px 0">Team statt Lager</li>
+              <li style="margin:6px 0">Respekt ist Standard</li>
             </ul>
           </div>
         </details>
@@ -871,9 +876,9 @@
           </summary>
           <div class="accBody">
             <p class="muted">Arbeitsplätze sichern und Standort Aßlar stärken.</p>
-            <ul>
-              <li>Standort stärken</li>
-              <li>Zukunft im Blick</li>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li style="margin:6px 0">Standort stärken</li>
+              <li style="margin:6px 0">Zukunft im Blick</li>
             </ul>
           </div>
         </details>
@@ -888,9 +893,9 @@
           </summary>
           <div class="accBody">
             <p class="muted">Tarif sichern und verständlich machen, was gilt und warum.</p>
-            <ul>
-              <li>Regeln verständlich erklären</li>
-              <li>Tarif als Schutz für alle</li>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li style="margin:6px 0">Regeln verständlich erklären</li>
+              <li style="margin:6px 0">Tarif als Schutz für alle</li>
             </ul>
           </div>
         </details>
@@ -932,11 +937,11 @@
             <div class="accChevron">⌄</div>
           </summary>
           <div class="accBody">
-            <ul>
-              <li>Wir sagen frühzeitig, was gerade läuft</li>
-              <li>Wir erklären Entscheidungen in normaler Sprache</li>
-              <li>Wir bleiben dran, bis ein Thema sauber abgeschlossen ist</li>
-              <li>Wir sind ansprechbar: Teams oder persönlich</li>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li style="margin:6px 0">Wir sagen frühzeitig, was gerade läuft</li>
+              <li style="margin:6px 0">Wir erklären Entscheidungen in normaler Sprache</li>
+              <li style="margin:6px 0">Wir bleiben dran, bis ein Thema sauber abgeschlossen ist</li>
+              <li style="margin:6px 0">Wir sind ansprechbar: aktuell persönlich</li>
             </ul>
           </div>
         </details>
@@ -1052,7 +1057,7 @@
           <div>
             <b style="color:var(--text)">Kontakt</b>
             <p style="margin-top:8px">
-              Kontakt über Teams oder persönlich in den Abteilungen.
+              Kontakt aktuell ausschließlich persönlich in den Abteilungen. Kommt auf uns zu.
             </p>
             <p class="muted" style="margin-top:10px">
               Wichtig: <b>Am 17.03 wählen gehen</b>.
@@ -1080,13 +1085,13 @@
 
   <script>
     /******************************************************************
-     * SETTINGS (HÄKCHEN SETZEN)
+     * SETTINGS
      ******************************************************************/
-    const SHOW_TEAMS_BUTTONS = true;   // <- auf false = Teams Buttons komplett aus
-    const TEAM_VISIBLE_DEFAULT = 12;   // <- erste 12 sichtbar
+    const SHOW_TEAMS_BUTTONS = false;  // <- wie gewünscht: keine Teams Buttons (später einfach true)
+    const TEAM_VISIBLE_DEFAULT = 12;
 
     /******************************************************************
-     * DROPDOWN – FUNKTIONIERT
+     * DROPDOWN – zuverlässig
      ******************************************************************/
     const menuBtn = document.getElementById('menuBtn');
     const dropdown = document.getElementById('dropdown');
@@ -1115,9 +1120,9 @@
     });
 
     /******************************************************************
-     * COUNTDOWN – NUR TAGE
+     * COUNTDOWN
      ******************************************************************/
-    const electionDate = new Date(2026, 2, 17, 8, 0, 0); // 17.03.2026
+    const electionDate = new Date(2026, 2, 17, 8, 0, 0);
     function updateCountdown(){
       const now = new Date();
       const diff = electionDate - now;
